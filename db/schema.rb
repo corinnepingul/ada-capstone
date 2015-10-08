@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008173841) do
+ActiveRecord::Schema.define(version: 20151008175828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "moments", force: :cascade do |t|
+    t.date     "date",       null: false
+    t.text     "body",       null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
@@ -26,4 +34,5 @@ ActiveRecord::Schema.define(version: 20151008173841) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "moments", "users"
 end
