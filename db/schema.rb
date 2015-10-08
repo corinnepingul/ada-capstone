@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008180326) do
+ActiveRecord::Schema.define(version: 20151008180704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,27 @@ ActiveRecord::Schema.define(version: 20151008180326) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "moments_tags", id: false, force: :cascade do |t|
+    t.integer "moment_id", null: false
+    t.integer "tag_id",    null: false
+  end
+
+  add_index "moments_tags", ["moment_id"], name: "index_moments_tags_on_moment_id", using: :btree
+  add_index "moments_tags", ["tag_id"], name: "index_moments_tags_on_tag_id", using: :btree
+
   create_table "tags", force: :cascade do |t|
     t.string   "body",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "tags_users", id: false, force: :cascade do |t|
+    t.integer "tag_id",  null: false
+    t.integer "user_id", null: false
+  end
+
+  add_index "tags_users", ["tag_id"], name: "index_tags_users_on_tag_id", using: :btree
+  add_index "tags_users", ["user_id"], name: "index_tags_users_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
