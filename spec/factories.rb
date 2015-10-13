@@ -8,7 +8,7 @@ FactoryGirl.define do
   end
 
   factory :moment do
-    date "09/14/1992"
+    date Date.new(1992, 9, 14)
     body "This is when I was born. #imhere"
     user
   end
