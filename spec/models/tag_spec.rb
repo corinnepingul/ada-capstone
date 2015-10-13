@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Tag, type: :model do
+  # TODO: tag model association tests
   describe "tag model associations" do
     it "has and belongs to many users" do
 

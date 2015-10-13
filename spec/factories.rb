@@ -10,7 +10,7 @@ FactoryGirl.define do
   factory :moment do
     date Date.new(1992, 9, 14)
     body "This is when I was born. #imhere"
-    user
+    user # could pass in params here
   end
 
   factory :tag do
