@@ -12,7 +12,7 @@ end
 
 CSV.foreach("db/moments.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
   Moment.create(
-    date: row[:date],
+    date: Date.parse(row[:date]),
     body: row[:body],
     user_id: row[:user_id]
   )
