@@ -12,7 +12,23 @@ RSpec.describe WelcomeController, type: :controller do
     end
 
     context "user logged in" do
+      before :each do
+        @user = create(:user)
+        session[:id] = @user.id
+        get :index
+      end
 
+      it "loads the homepage" do
+        expect(response).to render_template(:index)
+      end
+
+      it "assigns the signed in user" do
+        expect(assigns(:user)).to eq @user
+      end
+
+      it "assigns the signed in user's posts" do
+        expect(assigns(:moments)).to eq @user.moments
+      end
     end
   end
 end
