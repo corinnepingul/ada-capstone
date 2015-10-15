@@ -22,7 +22,7 @@ RSpec.describe SessionsController, type: :controller do
       before :each do
         @user = create(:user)
 
-        post :create, session: {username: @user.username, password: @user.password}
+        post :create, session: { username: @user.username, password: @user.password }
       end
 
       it "sets the user" do
@@ -40,6 +40,26 @@ RSpec.describe SessionsController, type: :controller do
       it "redirects to the user's homepage" do
         expect(response).to redirect_to root_path(@user.id)
         expect(response).to have_http_status(302)
+      end
+    end
+
+    context "invalid user params" do
+      before :each do
+        @user = create(:user)
+      end
+
+      it "invalid password renders the page with error message" do
+        post :create, session: { username: @user.username, password: "invalid" }
+
+        expect(response).to render_template(:index)
+        expect(flash[:errors]).to include { :login_error }
+      end
+
+      it "invalid username renders the page with error message" do
+        post :create, session: { username: "invalid_user", password: @user.password }
+
+        expect(response).to render_template(:index)
+        expect(flash[:errors]).to include { :login_error }
       end
     end
   end

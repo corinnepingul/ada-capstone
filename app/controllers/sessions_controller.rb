@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       flash[:messages] = MESSAGES[:successful_login]
       redirect_to root_path(@user)
     else
-      flash.now[:errors] = ERRORS[:login_error] # NOTE: in specs, can test this with: `@sellers.errors.messages`
+      flash.now[:errors] = ERRORS[:login_error]
       render :index
     end
   end
