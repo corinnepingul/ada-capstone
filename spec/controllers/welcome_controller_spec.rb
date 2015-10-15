@@ -7,7 +7,7 @@ RSpec.describe WelcomeController, type: :controller do
         session[:id] = nil
         get :index
 
-        expect(response).to redirect_to(login_path)
+        expect(response).to redirect_to(registration_path)
       end
     end
 
