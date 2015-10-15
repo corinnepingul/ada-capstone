@@ -2,7 +2,8 @@ FactoryGirl.define do
   factory :user do
     username "corinnepingul"
     email "corinnepingul@gmail.com"
-    password_digest "corinnepingul"
+    password "corinnepingul"
+    password_confirmation "corinnepingul"
     phone_number 1111111111
     locale "en"
   end
