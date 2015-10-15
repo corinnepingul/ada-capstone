@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   # FOR LOGIN/LOGOUT
-  get "/login", to: "sessions#index", as: "login"
+  get "/registration", to: "sessions#index", as: "registration"
+  post "/login", to: "sessions#create", as: "login"
+
+  resources :users, only: [:create]
   # delete "/logout" => "sessions#destroy", as: "logout"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
