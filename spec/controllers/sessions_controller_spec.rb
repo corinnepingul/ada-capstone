@@ -51,14 +51,14 @@ RSpec.describe SessionsController, type: :controller do
       it "invalid password renders the page with error message" do
         post :create, session: { username: @user.username, password: "invalid" }
 
-        expect(response).to render_template(:index)
+        expect(response).to redirect_to(registration_path)
         expect(flash[:errors]).to include { :login_error }
       end
 
       it "invalid username renders the page with error message" do
         post :create, session: { username: "invalid_user", password: @user.password }
 
-        expect(response).to render_template(:index)
+        expect(response).to redirect_to(registration_path)
         expect(flash[:errors]).to include { :login_error }
       end
     end

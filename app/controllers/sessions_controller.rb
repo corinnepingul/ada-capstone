@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to root_path(@user)
     else
       flash.now[:errors] = ERRORS[:login_error]
-      render :index
+      redirect_to registration_path
     end
   end
 
