@@ -19,12 +19,10 @@ RSpec.describe SessionsController, type: :controller do
 
   describe "POST #create" do
     context "valid user params" do
-      let(:user_login_params) { { :session => attributes_for(:user) } }
-
       before :each do
         @user = create(:user)
 
-        post :create, user_login_params
+        post :create, session: {username: @user.username, password: @user.password}
       end
 
       it "sets the user" do
@@ -43,6 +41,22 @@ RSpec.describe SessionsController, type: :controller do
         expect(response).to redirect_to root_path(@user.id)
         expect(response).to have_http_status(302)
       end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before :each do
+      @user = create(:user)
+      post :create, session: {username: @user.username, password: @user.password}
+      delete :destroy
+    end
+
+    it "sets session user_id to nil" do
+      expect(session[:id]).to be nil
+    end
+
+    it "redirects to the root path" do
+      expect(response).to redirect_to root_path
     end
   end
 end
