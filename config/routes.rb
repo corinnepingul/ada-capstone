@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # FOR LOGIN/LOGOUT
   get "/registration", to: "sessions#index", as: "registration"
   post "/login", to: "sessions#create", as: "login"
+  delete "/logout", to: "sessions#destroy", as: "logout"
 
   resources :users, only: [:create]
   # delete "/logout" => "sessions#destroy", as: "logout"
