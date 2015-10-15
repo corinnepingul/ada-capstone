@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   # FOR LOGIN/LOGOUT
-  get "/registration", to: "sessions#index", as: "registration"
+  get "/registration", to: "sessions#new", as: "registration"
   post "/login", to: "sessions#create", as: "login"
   delete "/logout", to: "sessions#destroy", as: "logout"
 
