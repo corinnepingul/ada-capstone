@@ -5,6 +5,17 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :require_login
 
+  MESSAGES = {
+    successful_signup: { successful_signup: "You have signed up!"},
+    successful_login: { successful_login: "You have logged in!" },
+    successful_logout: { successful_logout: "You have logged out!" }
+  }
+
+  ERRORS = {
+    not_logged_in: { not_logged_in: "Please log in to see this page." },
+    login_error: { login_error: "Invalid log in. Please try again!" }
+  }
+
   private
 
   def set_locale
@@ -13,7 +24,7 @@ class ApplicationController < ActionController::Base
 
   def require_login
     if session[:id].nil?
-      redirect_to login_path unless session[:id]
+      redirect_to registration_path unless session[:id]
     end
   end
 end
