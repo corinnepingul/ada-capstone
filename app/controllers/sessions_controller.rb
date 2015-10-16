@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @user = User.new
   end
 
-  def create # STOPPED HERE!
+  def create
     if @user && @user.authenticate(params[:session][:password])
       session[:id] = @user.id
       flash[:messages] = MESSAGES[:successful_login]
