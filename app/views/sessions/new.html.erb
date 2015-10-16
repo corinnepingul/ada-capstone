@@ -22,7 +22,7 @@
 <div class="row">
   <div class="col-lg-4 col-lg-offset-4">
     <h2>SIGN UP</h2>
-    <%= form_for @user do |f| %>
+    <%= form_for(:user, url: users_path) do |f| %>
       <fieldset>
         <div class="input-group col-lg-12">
           <%= f.label :username %>
@@ -40,7 +40,10 @@
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
-
+        <div class="input-group col-lg-12">
+          <%= f.label :phone_number %>
+          <%= f.telephone_field :phone_number, class: "form-control" %>
+        </div>
       </fieldset>
       <div class="form-actions">
         <%= f.submit "Sign Up", class: "btn btn-default" %>
