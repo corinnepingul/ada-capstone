@@ -7,6 +7,7 @@ CSV.foreach("db/users.csv", headers: true, header_converters: :symbol, converter
     password: row[:password],
     password_confirmation: row[:password_confirmation],
     phone_number: row[:phone_number],
+    country_code: row[:country_code],
     locale: row[:locale]
   )
 end
