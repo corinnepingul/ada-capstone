@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       flash[:messages] = MESSAGES[:successful_login]
       redirect_to root_path(@user)
     else
-      flash.now[:errors] = ERRORS[:login_error]
+      flash[:errors] = ERRORS[:login_error]
       redirect_to registration_path
     end
   end

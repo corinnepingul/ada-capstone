@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   ERRORS = {
     not_logged_in: { not_logged_in: "Please log in to see this page." },
     login_error: { login_error: "Invalid log in. Please try again!" },
-    registration_error: { registration_error: "Please try again." }
+    registration_error: { registration_error: "Invalid fields. Please try again." }
   }
 
   private
