@@ -7,7 +7,7 @@ FactoryGirl.define do
     country_code "+1"
     phone_number "1111111111"
     locale "en"
-    verfied true
+    verified true
   end
 
   factory :moment do
