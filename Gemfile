@@ -27,6 +27,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 
+gem 'authy'
+# Use Twilio to send confirmation message
+gem 'twilio-ruby'
+
+gem 'dotenv-rails', :groups => [:development, :test]
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
