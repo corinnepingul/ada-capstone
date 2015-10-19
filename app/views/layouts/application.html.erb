@@ -10,8 +10,8 @@
 </head>
 <body>
 
-  <% if flash[:message] %>
-      <% flash[:message].each do |key, value| %>
+  <% if flash[:messages] %>
+      <% flash[:messages].each do |key, value| %>
         <h5 class="alert alert-success">
           <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
           <%= key.to_s.titlecase %>: <%= value %>
