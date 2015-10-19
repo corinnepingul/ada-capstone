@@ -4,7 +4,8 @@ FactoryGirl.define do
     email "corinnepingul@gmail.com"
     password "corinnepingul"
     password_confirmation "corinnepingul"
-    phone_number 1111111111
+    country_code "+1"
+    phone_number "1111111111"
     locale "en"
   end
 
