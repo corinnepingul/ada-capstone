@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_filter :require_login, only: [ :create]
+  skip_before_filter :require_login, only: [:create]
 
 
   def create
@@ -7,16 +7,57 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:id] = @user.id
-      redirect_to root_path
+
+      # registers the user in Authy (to send them a text)
+      authy = Authy::API.register_user(
+        email: @user.email,
+        cellphone: @user.phone_number,
+        country_code: @user.country_code
+      )
+      @user.update(authy_id: authy.id)
+
+      # Send an SMS to user
+      Authy::API.request_sms(id: @user.authy_id, force: true)
+
+      redirect_to verify_path
     else
       flash[:errors] = ERRORS[:registration_error]
       redirect_to registration_path
     end
   end
 
+  def show_verify
+    return redirect_to registration_path unless session[:id]
+  end
+
+  def verify
+    @user = current_user
+
+    # Use Authy to send the verification token
+    token = Authy::API.verify(id: @user.authy_id, token: params[:token])
+
+    if token.ok?
+      # Mark the user as verified for get /user/:id
+      @user.update(verified: true)
+
+      # Show the homepage
+      redirect_to root_path
+    else
+      flash.now[:danger] = "Incorrect code, please try again"
+      render :show_verify
+    end
+  end
+
+  def resend
+    @user = current_user
+    Authy::API.request_sms(id: @user.authy_id, force: true)
+    flash[:notice] = "Verification code re-sent"
+    redirect_to verify_path
+  end
+
   private
 
   def valid_user_params
-    params.require(:user).permit(:username, :email, :phone_number, :password, :password_confirmation, :locale)
+    params.require(:user).permit(:username, :email, :phone_number, :country_code, :password, :password_confirmation, :locale)
   end
 end
