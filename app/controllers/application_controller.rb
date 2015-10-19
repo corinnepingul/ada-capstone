@@ -24,8 +24,16 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
+    # this session[:id] = nil is for resetting the session if I delete a user
+    # record without logging out first!
+    # session[:id] = nil
     if session[:id].nil?
       redirect_to registration_path unless session[:id]
     end
+  end
+
+  def current_user
+    return unless session[:id]
+    @current_user ||= User.find(session[:id])
   end
 end
