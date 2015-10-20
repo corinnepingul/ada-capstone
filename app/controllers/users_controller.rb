@@ -20,9 +20,8 @@ class UsersController < ApplicationController
 
   def show_verify
     @user = current_user
-    # raise
 
-    # Send an SMS to user
+    # Send an SMS with verifcation code to user
     Authy::API.request_sms(id: @user.authy_id, force: true)
 
     return redirect_to registration_path unless session[:id]
@@ -31,17 +30,17 @@ class UsersController < ApplicationController
   def verify
     @user = current_user
 
-    # Use Authy to send the verification token
+    # Use Authy to send the verification token to API
     token = Authy::API.verify(id: @user.authy_id, token: params[:token])
 
     if token.ok?
-      # Mark the user as verified for get /user/:id
+      # Mark the user as verified
       @user.update(verified: true)
 
-      # Show the homepage
       redirect_to root_path
     else
       flash.now[:danger] = ERRORS[:incorrect_verification_code]
+
       render :show_verify
     end
   end
@@ -50,6 +49,7 @@ class UsersController < ApplicationController
     @user = current_user
     Authy::API.request_sms(id: @user.authy_id, force: true)
     flash[:notices] = NOTICES[:verification_code_resent]
+
     redirect_to verify_path
   end
 
