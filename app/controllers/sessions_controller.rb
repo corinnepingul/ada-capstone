@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
-  skip_before_filter :require_verfied_user, only: [:new, :create]
+  skip_before_filter :require_verfied_user, only: [:new, :create, :destroy]
   before_action :set_user, only: [:create]
 
   def new

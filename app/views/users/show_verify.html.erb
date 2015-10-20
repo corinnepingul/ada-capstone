@@ -16,3 +16,5 @@
 <%= form_tag users_resend_path do %>
   <button type="submit" class="btn">Resend code</button>
 <% end -%>
+
+<%= link_to "Cancel", logout_path, method: :delete, class: "btn btn-default" %>
