@@ -1,0 +1,27 @@
+<h2>Login</h2>
+<%= form_for(:session, url: login_path) do |f| %>
+  <fieldset>
+    <div class="input-group input-group-md col-md-12 username">
+      <%= f.label :username %>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        </div>
+        <%= f.text_field :username, class: "form-control", placeholder: "Username" %>
+      </div>
+    </div>
+    <div class="input-group input-group-md col-md-12 password">
+      <%= f.label :password %>
+      <div class="input-group">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+        </div>
+        <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+      </div>
+    </div>
+
+    <div class="form-actions btn-login">
+      <%= f.submit "Log In", class: "btn btn-default" %>
+    </div>
+  </fieldset>
+<% end %>
