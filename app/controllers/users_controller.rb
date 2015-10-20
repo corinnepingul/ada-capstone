@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_filter :require_login, only: [:create]
+  skip_before_filter :require_login, only: [:create, :show_verify]
+  skip_before_filter :require_verfied_user, only: [:create, :show_verify, :verify]
 
 
   def create
@@ -16,9 +17,6 @@ class UsersController < ApplicationController
       )
       @user.update(authy_id: authy.id)
 
-      # Send an SMS to user
-      Authy::API.request_sms(id: @user.authy_id, force: true)
-
       redirect_to verify_path
     else
       flash[:errors] = ERRORS[:registration_error]
@@ -27,6 +25,12 @@ class UsersController < ApplicationController
   end
 
   def show_verify
+    @user = current_user
+    # raise
+
+    # Send an SMS to user
+    Authy::API.request_sms(id: @user.authy_id, force: true)
+
     return redirect_to registration_path unless session[:id]
   end
 
@@ -51,7 +55,7 @@ class UsersController < ApplicationController
   def resend
     @user = current_user
     Authy::API.request_sms(id: @user.authy_id, force: true)
-    flash[:notice] = "Verification code re-sent"
+    flash[:notice] = { notice: "Verification code re-sent" }
     redirect_to verify_path
   end
 
