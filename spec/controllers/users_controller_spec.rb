@@ -154,11 +154,24 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "POST #verify" do
-    it "sets user to be the user signed in" do
 
+    it "sets user to be the user signed in" do
+      @user = create(:user, verified: false)
+      session[:id] = @user.id
+
+      post :verify
+
+      expect(assigns(:user)).to eq @user
     end
 
     context "Authy token is valid" do
+      before :each do
+        @user = create(:user, verified: false)
+        session[:id] = @user.id
+
+        post :verify
+      end
+
       it "updates the users verfied column to true" do
 
       end
