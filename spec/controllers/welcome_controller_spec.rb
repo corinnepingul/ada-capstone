@@ -11,7 +11,19 @@ RSpec.describe WelcomeController, type: :controller do
       end
     end
 
-    context "user logged in" do
+    context "user logged in, but not verified" do
+      before :each do
+        @user = create(:user, verified: false)
+        session[:id] = @user.id
+        get :index
+      end
+
+      it "loads the verification page" do
+        expect(response).to redirect_to(verify_path)
+      end
+    end
+
+    context "user logged in and verified" do
       before :each do
         @user = create(:user)
         session[:id] = @user.id
