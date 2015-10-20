@@ -7,12 +7,12 @@ RSpec.describe UsersController, type: :controller do
         post :create, user: attributes_for(:user, username: "")
       end
 
-      it "doesn't persist the user to the db" do
+        it "doesn't persist the user to the db" do
         expect(User.count).to eq 0
       end
 
       it "renders the sessions#new view" do
-        expect(subject).to render_template("sessions/new")
+        expect(subject).to render_template "sessions/new"
       end
 
       it "assigns flash.now[:errors]" do
@@ -32,7 +32,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it "renders the sessions#new view" do
-        expect(subject).to render_template("sessions/new")
+        expect(subject).to render_template "sessions/new"
       end
 
       it "assigns flash.now[:errors]" do
@@ -52,7 +52,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it "renders the sessions#new view" do
-        expect(subject).to render_template("sessions/new")
+        expect(subject).to render_template "sessions/new"
       end
 
       it "assigns flash.now[:errors]" do
@@ -72,7 +72,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it "renders the sessions#new view" do
-        expect(subject).to render_template("sessions/new")
+        expect(subject).to render_template "sessions/new"
       end
 
       it "assigns flash.now[:errors]" do
@@ -90,7 +90,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it "renders the sessions#new view" do
-        expect(subject).to render_template("sessions/new")
+        expect(subject).to render_template "sessions/new"
       end
 
       it "assigns flash.now[:errors]" do
@@ -119,22 +119,36 @@ RSpec.describe UsersController, type: :controller do
 
   describe "GET #show_verify" do
     context "user is signed in" do
-      it "assigns @user to the user signed in" do
+      before :each do
+        @user = create(:user, verified: false)
+        session[:id] = @user.id
 
+        get :show_verify
+      end
+
+      it "assigns @user to the user signed in" do
+        expect(assigns(:user)).to eq @user
       end
 
       it "renders the show_verify view" do
-
+        expect(response).to render_template :show_verify
       end
     end
 
     context "no user signed in" do
-      it "@user is nil" do
+      before :each do
+        @user = create(:user, verified: false)
+        session[:id] = nil
 
+        get :show_verify
+      end
+
+      it "@user is nil" do
+        expect(assigns(:user)).to eq nil
       end
 
       it "redirects to registration_path" do
-
+        expect(response).to redirect_to registration_path
       end
     end
   end
