@@ -11,12 +11,12 @@ RSpec.describe UsersController, type: :controller do
         expect(User.count).to eq 0
       end
 
-      it "redirects_to registration_path" do
-        expect(subject).to redirect_to(registration_path)
+      it "renders the sessions#new view" do
+        expect(subject).to render_template("sessions/new")
       end
 
-      it "assigns flash[:errors]" do
-        expect(flash[:errors]).to include { :registration_error }
+      it "assigns flash.now[:errors]" do
+        expect(flash.now[:errors]).to include { :registration_error }
       end
     end
 
@@ -31,12 +31,12 @@ RSpec.describe UsersController, type: :controller do
         expect(User.where(username: "corinnepingul").count).to eq 1
       end
 
-      it "redirects_to registration_path" do
-        expect(subject).to redirect_to(registration_path)
+      it "renders the sessions#new view" do
+        expect(subject).to render_template("sessions/new")
       end
 
-      it "assigns flash[:errors]" do
-        expect(flash[:errors]).to include { :registration_error }
+      it "assigns flash.now[:errors]" do
+        expect(flash.now[:errors]).to include { :registration_error }
       end
     end
 
@@ -51,12 +51,12 @@ RSpec.describe UsersController, type: :controller do
         expect(User.where(phone_number: 1111111111).count).to eq 1
       end
 
-      it "redirects_to registration_path" do
-        expect(subject).to redirect_to(registration_path)
+      it "renders the sessions#new view" do
+        expect(subject).to render_template("sessions/new")
       end
 
-      it "assigns flash[:errors]" do
-        expect(flash[:errors]).to include { :registration_error }
+      it "assigns flash.now[:errors]" do
+        expect(flash.now[:errors]).to include { :registration_error }
       end
     end
 
@@ -71,12 +71,12 @@ RSpec.describe UsersController, type: :controller do
         expect(User.where(email: "corinnepingul@gmail.com").count).to eq 1
       end
 
-      it "redirects_to registration_path" do
-        expect(subject).to redirect_to(registration_path)
+      it "renders the sessions#new view" do
+        expect(subject).to render_template("sessions/new")
       end
 
-      it "assigns flash[:errors]" do
-        expect(flash[:errors]).to include { :registration_error }
+      it "assigns flash.now[:errors]" do
+        expect(flash.now[:errors]).to include { :registration_error }
       end
     end
 
@@ -89,12 +89,12 @@ RSpec.describe UsersController, type: :controller do
         expect(User.count).to eq 0
       end
 
-      it "redirects_to registration_path" do
-        expect(subject).to redirect_to(registration_path)
+      it "renders the sessions#new view" do
+        expect(subject).to render_template("sessions/new")
       end
 
-      it "assigns flash[:errors]" do
-        expect(flash[:errors]).to include { :registration_error }
+      it "assigns flash.now[:errors]" do
+        expect(flash.now[:errors]).to include { :registration_error }
       end
     end
 
@@ -107,13 +107,69 @@ RSpec.describe UsersController, type: :controller do
         expect(User.count).to eq 1
       end
 
-      it "redirects to the users homepage" do
-        expect(subject).to redirect_to root_path
+      it "redirects to the verification page" do
+        expect(subject).to redirect_to verify_path
       end
 
       it "signs them into a session" do
         expect(session[:id]).to eq User.first.id
       end
     end
+  end
+
+  describe "GET #show_verify" do
+    context "user is signed in" do
+      it "assigns @user to the user signed in" do
+
+      end
+
+      it "renders the show_verify view" do
+
+      end
+    end
+
+    context "no user signed in" do
+      it "@user is nil" do
+
+      end
+
+      it "redirects to registration_path" do
+
+      end
+    end
+  end
+
+  describe "POST #verify" do
+    it "sets user to be the user signed in" do
+
+    end
+
+    context "Authy token is valid" do
+      it "updates the users verfied column to true" do
+
+      end
+
+      it "sets flash message to successful_login" do
+
+      end
+
+      it "redirects_to the root_path" do
+
+      end
+    end
+
+    context "Authy token is invalid" do
+      it "sets flash error message to incorrect_verification_code" do
+
+      end
+
+      it "rerenders the show_verify page" do
+
+      end
+    end
+  end
+
+  describe "POST #resend" do
+
   end
 end

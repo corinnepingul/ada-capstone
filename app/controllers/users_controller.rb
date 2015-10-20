@@ -12,9 +12,9 @@ class UsersController < ApplicationController
 
       redirect_to verify_path
     else
-      flash[:errors] = ERRORS[:registration_error]
+      flash.now[:errors] = ERRORS[:registration_error]
 
-      redirect_to registration_path
+      render "sessions/new"
     end
   end
 
@@ -36,6 +36,7 @@ class UsersController < ApplicationController
     if token.ok?
       # Mark the user as verified
       @user.update(verified: true)
+      flash[:message] = MESSAGES[:successful_login]
 
       redirect_to root_path
     else
