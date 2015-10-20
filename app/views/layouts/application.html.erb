@@ -10,32 +10,7 @@
 </head>
 <body>
   <div class="container-fluid">
-    <% if flash[:messages] %>
-      <% flash[:messages].each do |key, value| %>
-        <h5 class="alert alert-success">
-          <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-          <%= key.to_s.titlecase %>: <%= value %>
-        </h5>
-      <% end %>
-    <% end %>
-
-    <% if flash[:errors] %>
-      <% flash[:errors].each do |key, value| %>
-        <h5 class="alert alert-warning">
-          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-          <%= key.to_s.titlecase %>: <%= value %>
-        </h5>
-      <% end %>
-    <% end %>
-
-    <% if flash[:notices] %>
-      <% flash[:notices].each do |key, value| %>
-        <h5 class="alert alert-warning">
-          <span aria-hidden="true"></span>
-          <%= key.to_s.titlecase %>: <%= value %>
-        </h5>
-      <% end %>
-    <% end %>
+    <%= render partial: "layouts/flash_messages" %>
 
     <%= yield %>
   </div>
