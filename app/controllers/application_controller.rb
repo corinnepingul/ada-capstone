@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   before_action :require_login
+  before_action :require_verfied_user
 
   MESSAGES = {
     successful_signup: { successful_signup: "You have signed up!"},
@@ -30,6 +31,11 @@ class ApplicationController < ActionController::Base
     if session[:id].nil?
       redirect_to registration_path unless session[:id]
     end
+  end
+
+  def require_verfied_user
+    @user = current_user
+    redirect_to verify_path if @user.verified == false
   end
 
   def current_user
