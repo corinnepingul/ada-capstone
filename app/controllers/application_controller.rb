@@ -15,7 +15,13 @@ class ApplicationController < ActionController::Base
   ERRORS = {
     not_logged_in: { not_logged_in: "Please log in to see this page." },
     login_error: { login_error: "Invalid log in. Please try again!" },
-    registration_error: { registration_error: "Invalid fields. Please try again." }
+    registration_error: { registration_error: "Invalid fields. Please try again." },
+    incorrect_verification_code: { incorrect_verification_code: "Incorrect code, please try again." }
+  }
+
+  NOTICES = {
+    verification_code_resent: { verification_code_resent: "Verification code has been resent to your phone." },
+    needs_verification: { needs_verification: "Please verify your account. A verification code has been resent to your phone." }
   }
 
   private

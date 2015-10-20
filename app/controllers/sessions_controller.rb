@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
         flash[:messages] = MESSAGES[:successful_login]
         redirect_to root_path(@user)
       else
-        flash[:notice] = { notice: "Please verify your account. Verification code resent." }
+        flash[:notice] = NOTICES[:needs_verification]
         redirect_to verify_path
       end
 

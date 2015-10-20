@@ -47,7 +47,7 @@ class UsersController < ApplicationController
       # Show the homepage
       redirect_to root_path
     else
-      flash.now[:danger] = "Incorrect code, please try again"
+      flash.now[:danger] = ERRORS[:incorrect_verification_code]
       render :show_verify
     end
   end
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   def resend
     @user = current_user
     Authy::API.request_sms(id: @user.authy_id, force: true)
-    flash[:notice] = { notice: "Verification code re-sent" }
+    flash[:notices] = NOTICES[:verification_code_resent]
     redirect_to verify_path
   end
 
