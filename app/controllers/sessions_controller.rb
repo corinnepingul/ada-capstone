@@ -8,14 +8,18 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # checks if user has signed up
     if @user && @user.authenticate(params[:session][:password])
       session[:id] = @user.id
 
+      # checks if user has verified their account using phone code
       if @user.verified == true
         flash[:messages] = MESSAGES[:successful_login]
+
         redirect_to root_path(@user)
       else
         flash[:notice] = NOTICES[:needs_verification]
+
         redirect_to verify_path
       end
 
