@@ -19,12 +19,14 @@ class UsersController < ApplicationController
   end
 
   def show_verify
+    # if there's no user logged in, redirect to registration path
+    return redirect_to registration_path unless session[:id]
+
+    # otherwise, send them a code
     @user = current_user
 
     # Send an SMS with verifcation code to user
     Authy::API.request_sms(id: @user.authy_id, force: true)
-
-    return redirect_to registration_path unless session[:id]
   end
 
   def verify
