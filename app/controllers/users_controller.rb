@@ -8,18 +8,12 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:id] = @user.id
-
-      # registers the user in Authy (to send them a text)
-      authy = Authy::API.register_user(
-        email: @user.email,
-        cellphone: @user.phone_number,
-        country_code: @user.country_code
-      )
-      @user.update(authy_id: authy.id)
+      register_authy_user(@user)
 
       redirect_to verify_path
     else
       flash[:errors] = ERRORS[:registration_error]
+
       redirect_to registration_path
     end
   end
@@ -60,6 +54,16 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def register_authy_user(user)
+    # registers the user in Authy (to send them a text)
+    authy = Authy::API.register_user(
+      email: user.email,
+      cellphone: user.phone_number,
+      country_code: user.country_code
+    )
+    user.update(authy_id: authy.id)
+  end
 
   def valid_user_params
     params.require(:user).permit(:username, :email, :phone_number, :country_code, :password, :password_confirmation, :locale)
