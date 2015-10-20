@@ -9,8 +9,8 @@
   <script src="https://www.authy.com/form.authy.min.js" type="text/javascript"></script>
 </head>
 <body>
-
-  <% if flash[:messages] %>
+  <div class="container-fluid">
+    <% if flash[:messages] %>
       <% flash[:messages].each do |key, value| %>
         <h5 class="alert alert-success">
           <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
@@ -38,6 +38,6 @@
     <% end %>
 
     <%= yield %>
-
+  </div>
 </body>
 </html>
