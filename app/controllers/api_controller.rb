@@ -13,13 +13,14 @@ class ApiController < ApplicationController
   # "controller"=>"api", "action"=>"received_message"}
 
   def received_message
+    puts "hello"
     message_body = params["Body"]
     from_number = params["From"]
 
     # finds the user who's sending in the text (may need to parse this data)
     user = User.where(phone_number: from_number)
-    puts "user's phone: " + user.phone_number
-    puts "User: " + user
+    # puts user.phone_number
+    # puts "User: " + user
 
 
     # if the user is found, create a new moment for them
@@ -35,6 +36,6 @@ class ApiController < ApplicationController
       end
     end
 
-    puts "moment: " + @moment
+    # puts "moment: " + @moment
   end
 end
