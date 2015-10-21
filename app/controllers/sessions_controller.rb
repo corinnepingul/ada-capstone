@@ -30,6 +30,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    puts "hello log"
     session[:id] = nil
     redirect_to root_path
   end
