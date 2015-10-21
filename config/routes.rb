@@ -14,6 +14,5 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
 
   # API
-  post "/sms/received_message", as: "sms"
-
+  post "/sms/received_message", to: "api#received_message", as: "sms"
 end
