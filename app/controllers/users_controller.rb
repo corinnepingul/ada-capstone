@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:create, :show_verify]
-  skip_before_filter :require_verfied_user, only: [:create, :show_verify, :verify]
+  skip_before_filter :require_verfied_user, only: [:create, :show_verify, :verify, :resend]
 
 
   def create
-    @user = User.new(valid_user_params)
+    @valid_user_params = valid_user_params
+    add_country_code_to_phone_number(@valid_user_params)
+
+    @user = User.new(@valid_user_params)
 
     if @user.save
       session[:id] = @user.id
@@ -62,13 +65,18 @@ class UsersController < ApplicationController
     # registers the user in Authy (to send them a text)
     authy = Authy::API.register_user(
       email: user.email,
-      cellphone: user.phone_number,
+      cellphone: user.phone_number[-10..-1], # this takes out the country code from the phone_number
       country_code: user.country_code
     )
+
     user.update(authy_id: authy.id)
   end
 
   def valid_user_params
     params.require(:user).permit(:username, :email, :phone_number, :country_code, :password, :password_confirmation, :locale)
+  end
+
+  def add_country_code_to_phone_number(valid_user_params)
+    valid_user_params[:phone_number] = "+" + valid_user_params[:country_code] + valid_user_params[:phone_number]
   end
 end
