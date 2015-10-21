@@ -18,6 +18,9 @@ class ApiController < ApplicationController
 
     # finds the user who's sending in the text (may need to parse this data)
     user = User.where(phone_number: from_number)
+    puts "user's phone: " + user.phone_number
+    puts "User: " + user
+
 
     # if the user is found, create a new moment for them
     unless user.nil?
@@ -31,5 +34,7 @@ class ApiController < ApplicationController
         puts "This moment was saved!"
       end
     end
+
+    puts "moment: " + @moment
   end
 end
