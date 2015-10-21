@@ -17,13 +17,10 @@ class ApiController < ApplicationController
     from_number = params["From"]
 
     # finds the user who's sending in the text (may need to parse this data)
-    user = User.where(phone_number: from_number)
-    puts user.phone_number
-    # puts "User: " + user
-
+    @user = User.where(phone_number: from_number).first
 
     # if the user is found, create a new moment for them
-    unless user.nil?
+    unless @user.nil?
       @moment = Moment.new(
                   date: Date.new,
                   body: message_body,
@@ -35,6 +32,5 @@ class ApiController < ApplicationController
       end
     end
 
-    # puts "moment: " + @moment
   end
 end
