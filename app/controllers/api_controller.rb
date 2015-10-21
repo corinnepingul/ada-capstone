@@ -3,6 +3,8 @@ class ApiController < ApplicationController
   skip_before_filter :require_verfied_user
 
   def received_message
+    puts request.body
+
     message_body = params["Body"]
     from_number = params["From"]
 
