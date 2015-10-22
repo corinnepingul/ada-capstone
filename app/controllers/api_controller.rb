@@ -23,10 +23,23 @@ class ApiController < ApplicationController
   # "ApiVersion"=>"2010-04-01", "controller"=>"api", "action"=>"received_message"}
 
   # TWILIO's POST REQUEST FOR BOTH SMS & MMS:
-
+  # {"ToCountry"=>"US", "MediaContentType0"=>"image/jpeg", "ToState"=>"LA",
+  # "SmsMessageSid"=>"MM16759f9b03d21d92d83572f150b77067", "NumMedia"=>"1", "ToCity"=>"NEW ORLEANS",
+  # "FromZip"=>"98104", "SmsSid"=>"MM16759f9b03d21d92d83572f150b77067", "FromState"=>"WA",
+  # "SmsStatus"=>"received", "FromCity"=>"SEATTLE", "Body"=>"Another pic yay", "FromCountry"=>"US",
+  # "To"=>"+15043157972", "ToZip"=>"70149", "NumSegments"=>"1", "MessageSid"=>"MM16759f9b03d21d92d83572f150b77067",
+  # "AccountSid"=>"AC6298a5335759e854332607f3a69bf92e", "From"=>"+12064997650",
+  # "MediaUrl0"=>"https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MM16759f9b03d21d92d83572f150b77067/Media/ME44d29624ce5b6bca3fcb4c0e8254c165",
+  # "ApiVersion"=>"2010-04-01", "controller"=>"api", "action"=>"received_message"}
 
   def received_message
+    moment = parse_message(params) # create this method to structure the information in the way I want it!
+    print "Params: "
     puts params
+
+    print "Moment: "
+    puts moment
+
     message_body = params["Body"]
     from_number = params["From"]
 
@@ -43,6 +56,26 @@ class ApiController < ApplicationController
   end
 
   private
+
+  def parse_message(params)
+    moment = {
+      body: params["Body"],
+      number_of_media: params["NumMedia"].to_i,
+      user_phone_number: params["From"]
+    }
+
+    # for each media, this will create a key/value pair that looks like:
+    # media_1_url: "url for media 1"
+    # media_2_url: "url for media 2"
+    counter = 1
+    while counter <= moment[:number_of_media] do
+      symbol_name = "media_#{counter}_url"
+      moment[symbol_name.to_sym] = params["MediaUrl#{counter}"]
+      counter += 1
+    end
+
+    return moment
+  end
 
   def find_user_by_phone_number(phone_number)
     # without the .first, this returns an Active Record relation
