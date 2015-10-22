@@ -60,7 +60,6 @@ class ApiController < ApplicationController
   def parse_message(params) # this currently only works with one photo
     moment = {
       body: params["Body"],
-      number_of_media: params["NumMedia"].to_i,
       user_phone_number: params["From"]
     }
 
