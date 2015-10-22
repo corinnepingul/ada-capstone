@@ -22,7 +22,11 @@ class ApiController < ApplicationController
   # "MediaUrl0"=>"https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MMa39e75e57c740de6c997237fc13a0582/Media/ME3952542eb62296b2fbefb42bd894b3f5",
   # "ApiVersion"=>"2010-04-01", "controller"=>"api", "action"=>"received_message"}
 
+  # TWILIO's POST REQUEST FOR BOTH SMS & MMS:
+
+
   def received_message
+    puts params
     message_body = params["Body"]
     from_number = params["From"]
 
@@ -33,6 +37,7 @@ class ApiController < ApplicationController
     if user.nil?
       # TODO: Error Handling
     else
+      # IS IT AN SMS OR MMS?
       create_moment(user, message_body)
     end
   end
