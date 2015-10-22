@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     @user = current_user
 
     # Use Authy to send the verification token to API
-    token = Authy::API.verify(id: @user.authy_id, token: params[:token])
+    token = AuthyClient.verify_token(@user.authy_id, params[:token])
 
     if token.ok?
       # Mark the user as verified

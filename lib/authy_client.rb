@@ -10,4 +10,8 @@ class AuthyClient
   def self.send_verification_code(authy_id)
     Authy::API.request_sms(id: authy_id, force: true)
   end
+
+  def self.verify_token(authy_id, token)
+    Authy::API.verify(id: authy_id, token: token)
+  end
 end
