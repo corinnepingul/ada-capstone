@@ -33,25 +33,17 @@ class ApiController < ApplicationController
   # "ApiVersion"=>"2010-04-01", "controller"=>"api", "action"=>"received_message"}
 
   def received_message
-    moment = parse_message(params) # create this method to structure the information in the way I want it!
-    print "Params: "
-    puts params
-
-    print "Moment: "
-    puts moment
-
-    message_body = params["Body"]
-    from_number = params["From"]
+    moment = parse_message(params)
 
     # Finds the user who's sending in the text (may need to parse this data)
-    user = find_user_by_phone_number(from_number)
+    user = find_user_by_phone_number(moment[:user_phone_number])
 
     # If the user is found, create a new moment for them
     if user.nil?
       # TODO: Error Handling
     else
       # IS IT AN SMS OR MMS?
-      create_moment(user, message_body)
+      create_moment(user, moment)
     end
   end
 
@@ -60,10 +52,11 @@ class ApiController < ApplicationController
   def parse_message(params) # this currently only works with one photo
     moment = {
       body: params["Body"],
-      user_phone_number: params["From"]
+      user_phone_number: params["From"],
+      media_url: nil
     }
 
-    # If there is a picture in the message,
+    # Assigns media url if it exists
     if params["MediaUrl0"]
       moment[:media_url] = params["MediaUrl0"]
     end
@@ -77,14 +70,15 @@ class ApiController < ApplicationController
     User.where(phone_number: phone_number).first
   end
 
-  def create_moment(user, message_body)
+  def create_moment(user, moment)
     date = Date.today
 
     moment = Moment.new(
-                date: date,
-                body: message_body,
-                user_id: user.id
-                )
+              date: date,
+              body: moment[:body],
+              user_id: user.id,
+              media_url: moment[:media_url]
+            )
 
     if moment.save
       puts "This moment was saved!"
