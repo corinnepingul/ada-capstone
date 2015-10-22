@@ -43,12 +43,12 @@ RSpec.describe UsersController, type: :controller do
     context "duplicate phone number" do
       before :each do
         create(:user)
-        post :create, user: attributes_for(:user, username: "different", email: "different@gmail.com")
+        post :create, user: attributes_for(:user, phone_number: "1111111111", username: "different", email: "different@gmail.com")
       end
 
       it "doesn't persist the user to the db" do
         expect(User.all.count).to eq 1
-        expect(User.where(phone_number: 1111111111).count).to eq 1
+        expect(User.where(phone_number: "+11111111111").count).to eq 1
       end
 
       it "renders the sessions#new view" do
@@ -126,10 +126,6 @@ RSpec.describe UsersController, type: :controller do
         get :show_verify
       end
 
-      it "assigns @user to the user signed in" do
-        expect(assigns(:user)).to eq @user
-      end
-
       it "renders the show_verify view" do
         expect(response).to render_template :show_verify
       end
@@ -143,10 +139,6 @@ RSpec.describe UsersController, type: :controller do
         get :show_verify
       end
 
-      it "@user is nil" do
-        expect(assigns(:user)).to eq nil
-      end
-
       it "redirects to registration_path" do
         expect(response).to redirect_to registration_path
       end
@@ -154,15 +146,6 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "POST #verify" do
-
-    it "sets user to be the user signed in" do
-      @user = create(:user, verified: false)
-      session[:id] = @user.id
-
-      post :verify
-
-      expect(assigns(:user)).to eq @user
-    end
 
     context "Authy token is valid" do
       before :each do
