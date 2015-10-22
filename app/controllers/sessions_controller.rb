@@ -8,22 +8,22 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # checks if user has signed up
-    if @user && @user.authenticate(params[:session][:password])
+    # If user is signed up AND verified:
+    if user_is_signed_up(@user) && @user.verified
       session[:id] = @user.id
+      flash[:messages] = MESSAGES[:successful_login]
 
-      # checks if user has verified their account using phone code
-      if @user.verified == true
-        flash[:messages] = MESSAGES[:successful_login]
+      redirect_to root_path(@user)
 
-        redirect_to root_path(@user)
-      else
-        flash[:notice] = NOTICES[:needs_verification]
+    # If user is signed up AND NOT verified:
+    elsif user_is_signed_up(@user)
+      session[:id] = @user.id
+      flash[:notice] = NOTICES[:needs_verification]
 
-        redirect_to verify_path
-      end
+      redirect_to verify_path
 
-    else
+    # If user is NOT signed up AND NOT verified:
+    elsif
       flash[:errors] = ERRORS[:login_error]
       redirect_to registration_path
     end
@@ -38,5 +38,9 @@ class SessionsController < ApplicationController
 
   def set_user
     @user = User.find_by(username: params[:session][:username])
+  end
+
+  def user_is_signed_up(user)
+    user && user.authenticate(params[:session][:password])
   end
 end
