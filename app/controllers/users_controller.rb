@@ -54,7 +54,8 @@ class UsersController < ApplicationController
 
   def resend
     @user = current_user
-    Authy::API.request_sms(id: @user.authy_id, force: true)
+    AuthyClient.send_verification_code(@user.authy_id)
+
     flash[:notices] = NOTICES[:verification_code_resent]
 
     redirect_to verify_path
