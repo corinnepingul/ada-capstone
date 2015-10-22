@@ -29,8 +29,8 @@ class UsersController < ApplicationController
     # otherwise, send them a code
     @user = current_user
 
-    # Send an SMS with verifcation code to user
-    Authy::API.request_sms(id: @user.authy_id, force: true)
+    # Send an SMS with verifcation code to user, see authy_client.rb
+    AuthyClient.send_verification_code(@user.authy_id)
   end
 
   def verify
