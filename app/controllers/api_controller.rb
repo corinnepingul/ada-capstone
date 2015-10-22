@@ -16,17 +16,36 @@ class ApiController < ApplicationController
     message_body = params["Body"]
     from_number = params["From"]
 
-    # finds the user who's sending in the text (may need to parse this data)
-    @users = User.where(phone_number: from_number)
-    @user = @users.first
+    # Finds the user who's sending in the text (may need to parse this data)
+    user = find_user_by_phone_number(from_number)
 
-    # if the user is found, create a new moment for them
-    unless @user.nil?
-      @moment = Moment.new(date: Date.new, body: message_body, user_id: @user.id)
+    # If the user is found, create a new moment for them
+    if user.nil?
+      # TODO: Error Handling
+    else
+      create_moment(user, message_body)
+    end
+  end
 
-      if @moment.save
-        puts "This moment was saved!"
-      end
+  private
+
+  def find_user_by_phone_number(phone_number)
+    # without the .first, this returns an Active Record relation
+    # with the .first, this returns the User object
+    User.where(phone_number: phone_number).first
+  end
+
+  def create_moment(user, message_body)
+    date = Date.today
+
+    moment = Moment.new(
+                date: date,
+                body: message_body,
+                user_id: user.id
+                )
+
+    if moment.save
+      puts "This moment was saved!"
     end
   end
 end
