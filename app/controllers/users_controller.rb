@@ -1,7 +1,8 @@
+require 'authy_client'
+
 class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:create, :show_verify]
   skip_before_filter :require_verfied_user, only: [:create, :show_verify, :verify, :resend]
-
 
   def create
     @valid_user_params = valid_user_params
@@ -62,13 +63,10 @@ class UsersController < ApplicationController
   private
 
   def register_authy_user(user)
-    # registers the user in Authy (to send them a text)
-    authy = Authy::API.register_user(
-      email: user.email,
-      cellphone: user.phone_number[-10..-1], # this takes out the country code from the phone_number
-      country_code: user.country_code
-    )
+    # Registers the user in Authy (to send them a text), see authy_client.rb
+    authy = AuthyClient.register_user(user)
 
+    # Updates authy_id for user record
     user.update(authy_id: authy.id)
   end
 
