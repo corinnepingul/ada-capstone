@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   def require_login
     # this session[:id] = nil is for resetting the session if I delete a user
     # record without logging out first!
-    # session[:id] = nil
+    session[:id] = nil
     if session[:id].nil?
       redirect_to registration_path unless session[:id]
     end
