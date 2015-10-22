@@ -19,6 +19,9 @@ class ApiController < ApplicationController
     print "from number: "
     puts from_number
 
+    print "from number type: "
+    puts from_number.class
+
     # finds the user who's sending in the text (may need to parse this data)
     @users = User.where(phone_number: from_number)
     @user = @users.first
