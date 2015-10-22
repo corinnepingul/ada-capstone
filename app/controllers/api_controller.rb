@@ -16,32 +16,17 @@ class ApiController < ApplicationController
     message_body = params["Body"]
     from_number = params["From"]
 
-    print "from number: "
-    puts from_number
-
-    print "from number type: "
-    puts from_number.class
-
     # finds the user who's sending in the text (may need to parse this data)
     @users = User.where(phone_number: from_number)
     @user = @users.first
 
-    print "users: "
-    puts @users
-    print "user: "
-    puts @user
-
-
     # if the user is found, create a new moment for them
-    if @user.nil?
-      puts "User is nil :("
-    else
+    unless @user.nil?
       @moment = Moment.new(date: Date.new, body: message_body, user_id: @user.id)
 
       if @moment.save
         puts "This moment was saved!"
       end
     end
-
   end
 end
