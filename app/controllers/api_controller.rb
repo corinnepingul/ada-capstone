@@ -57,21 +57,16 @@ class ApiController < ApplicationController
 
   private
 
-  def parse_message(params)
+  def parse_message(params) # this currently only works with one photo
     moment = {
       body: params["Body"],
       number_of_media: params["NumMedia"].to_i,
       user_phone_number: params["From"]
     }
 
-    # for each media, this will create a key/value pair that looks like:
-    # media_1_url: "url for media 1"
-    # media_2_url: "url for media 2"
-    counter = 0
-    while counter < moment[:number_of_media] do
-      symbol_name = "media_#{counter}_url"
-      moment[symbol_name.to_sym] = params["MediaUrl#{counter}"]
-      counter += 1
+    # If there is a picture in the message,
+    if params["MediaUrl0"]
+      moment[:media_url] = params["MediaUrl0"]
     end
 
     return moment
