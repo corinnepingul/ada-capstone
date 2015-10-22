@@ -67,8 +67,8 @@ class ApiController < ApplicationController
     # for each media, this will create a key/value pair that looks like:
     # media_1_url: "url for media 1"
     # media_2_url: "url for media 2"
-    counter = 1
-    while counter <= moment[:number_of_media] do
+    counter = 0
+    while counter < moment[:number_of_media] do
       symbol_name = "media_#{counter}_url"
       moment[symbol_name.to_sym] = params["MediaUrl#{counter}"]
       counter += 1
