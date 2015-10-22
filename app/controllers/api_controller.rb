@@ -13,6 +13,7 @@ class ApiController < ApplicationController
   # "controller"=>"api", "action"=>"received_message"}
 
   def received_message
+    puts params
     message_body = params["Body"]
     from_number = params["From"]
 
