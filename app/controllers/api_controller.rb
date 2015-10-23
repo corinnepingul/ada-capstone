@@ -79,6 +79,12 @@ class ApiController < ApplicationController
   def create_moment(user, moment_info)
     date = Date.today
 
+    print "moment_info[:body]: "
+    puts moment_info[:body]
+
+    print "moment_info[:media_url]: "
+    puts moment_info[:media_url]
+
     moment = Moment.new(
               date: date,
               body: moment_info[:body],
