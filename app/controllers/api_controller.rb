@@ -41,7 +41,10 @@ class ApiController < ApplicationController
     # If the user is found, create a new moment for them
     if user.nil?
       # TODO: Error Handling
+      puts "user is nil"
     else
+      puts "ready to create moment"
+      puts moment
       # IS IT AN SMS OR MMS?
       create_moment(user, moment)
     end
