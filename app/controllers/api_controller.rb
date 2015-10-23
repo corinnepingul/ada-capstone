@@ -38,12 +38,6 @@ class ApiController < ApplicationController
     # Finds the user who's sending in the text (may need to parse this data)
     user = find_user_by_phone_number(moment[:user_phone_number])
 
-    print "Moment: "
-    puts moment
-
-    print "User: "
-    puts user
-
     # If the user is found, create a new moment for them
     if user.nil?
       # TODO: Error Handling
@@ -79,12 +73,6 @@ class ApiController < ApplicationController
   def create_moment(user, moment_info)
     date = Date.today
 
-    print "moment_info[:body]: "
-    puts moment_info[:body]
-
-    print "moment_info[:media_url]: "
-    puts moment_info[:media_url]
-
     moment = Moment.new(
               date: date,
               body: moment_info[:body],
@@ -92,9 +80,12 @@ class ApiController < ApplicationController
               media_url: moment_info[:media_url]
             )
 
-    print "IS moment valid? "
-    puts moment.valid?
-    puts moment.errors
+    # it's not printing
+    if moment.valid?
+      puts "This moment is valid."
+    else
+      puts moment.errors
+    end
 
     if moment.save
       puts "This moment was saved!"
