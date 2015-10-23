@@ -92,6 +92,10 @@ class ApiController < ApplicationController
               media_url: moment_info[:media_url]
             )
 
+    print "IS moment valid? "
+    puts moment.valid?
+    puts moment.errors
+
     if moment.save
       puts "This moment was saved!"
     end
