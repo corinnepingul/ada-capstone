@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   MESSAGES = {
     successful_signup: { successful_signup: "You have signed up!"},
     successful_login: { successful_login: "You have logged in!" },
-    successful_logout: { successful_logout: "You have logged out!" }
+    successful_logout: { successful_logout: "You have logged out!" },
+    account_verified: { account_verified: "Your account has successfully been verified." }
   }
 
   ERRORS = {

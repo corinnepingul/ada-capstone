@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       session[:id] = user.id
       register_authy_user(user)
       send_verification_code_to_current_user
+      flash[:message] = MESSAGES[:account_verified]
 
       redirect_to verify_path
     else
