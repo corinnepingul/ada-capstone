@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
-  validates :phone_number, presence: true, uniqueness: true
+  validates :phone_number, presence: true, uniqueness: true, length: { minimum: 10, maximum: 15 }
 end
