@@ -48,7 +48,7 @@ RSpec.describe UsersController, type: :controller do
 
       it "doesn't persist the user to the db" do
         expect(User.all.count).to eq 1
-        expect(User.where(phone_number: "+11111111111").count).to eq 1
+        expect(User.where(phone_number: "2062223333").count).to eq 1
       end
 
       it "renders the sessions#new view" do

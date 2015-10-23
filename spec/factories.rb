@@ -5,7 +5,7 @@ FactoryGirl.define do
     password "corinnepingul"
     password_confirmation "corinnepingul"
     country_code "1"
-    phone_number "+11111111111"
+    phone_number "2062223333"
     locale "en"
     verified true
   end

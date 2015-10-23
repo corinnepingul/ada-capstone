@@ -7,10 +7,12 @@ class UsersController < ApplicationController
   def create
     user_attributes = valid_user_params
 
+    # Adds US country code to user_attributes (1)
+    user_attributes[:country_code] = "1"
+
     # this changes the phone_number field to delete any "-", " ", or "." characters
     # and adds country code to the front
     format_phone_number(user_attributes)
-    binding.pry
 
     user = User.new(user_attributes)
 
@@ -81,7 +83,6 @@ class UsersController < ApplicationController
                             :username,
                             :email,
                             :phone_number,
-                            :country_code,
                             :password,
                             :password_confirmation,
                             :locale
