@@ -60,6 +60,24 @@ RSpec.describe UsersController, type: :controller do
       end
     end
 
+    context "phone number not right length" do
+      before :each do
+        post :create, user: attributes_for(:user, phone_number: "23")
+      end
+
+      it "doesn't persist the user to the db" do
+        expect(User.all.count).to eq 0
+      end
+
+      it "renders the sessions#new view" do
+        expect(subject).to render_template "sessions/new"
+      end
+
+      it "assigns flash.now[:errors]" do
+        expect(flash.now[:errors]).to include { :registration_error }
+      end
+    end
+
     context "duplicate email" do
       before :each do
         create(:user)

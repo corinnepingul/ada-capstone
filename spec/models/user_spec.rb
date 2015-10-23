@@ -52,6 +52,14 @@ RSpec.describe User, type: :model do
       expect(user_without_unique_phone_number).to_not be_valid
     end
 
+    it "requires a phone number to be a length between 10 and 15" do
+      user_with_short_number = build(:user, phone_number: "123456789")
+      user_with_long_number = build(:user, phone_number: "1234567891123456")
+
+      expect(user_with_short_number).to_not be_valid
+      expect(user_with_long_number).to_not be_valid
+    end
+
     it "does not require a locale" do
       user_without_locale = build(:user, locale: nil)
 
