@@ -76,14 +76,14 @@ class ApiController < ApplicationController
     User.where(phone_number: phone_number).first
   end
 
-  def create_moment(user, moment)
+  def create_moment(user, moment_info)
     date = Date.today
 
     moment = Moment.new(
               date: date,
-              body: moment[:body],
+              body: moment_info[:body],
               user_id: user.id,
-              media_url: moment[:media_url]
+              media_url: moment_info[:media_url]
             )
 
     if moment.save
