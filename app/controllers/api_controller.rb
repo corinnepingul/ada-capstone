@@ -38,6 +38,12 @@ class ApiController < ApplicationController
     # Finds the user who's sending in the text (may need to parse this data)
     user = find_user_by_phone_number(moment[:user_phone_number])
 
+    print "Moment: "
+    puts moment
+
+    print "User: "
+    puts user
+
     # If the user is found, create a new moment for them
     if user.nil?
       # TODO: Error Handling
