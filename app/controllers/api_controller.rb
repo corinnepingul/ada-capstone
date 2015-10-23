@@ -76,8 +76,10 @@ class ApiController < ApplicationController
   def create_moment(user, moment_info)
     date = Date.today
 
-    # new_moment =
-    puts Moment.new(
+    puts user
+    puts moment_info
+
+    new_moment = Moment.new(
               date: date,
               body: moment_info[:body],
               user_id: user.id,
