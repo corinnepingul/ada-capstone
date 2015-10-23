@@ -7,8 +7,10 @@ class UsersController < ApplicationController
   def create
     user_attributes = valid_user_params
 
-    # this changes phone_number field to include country code before saving record
-    add_country_code_to_phone_number!(user_attributes)
+    # this changes the phone_number field to delete any "-", " ", or "." characters
+    # and adds country code to the front
+    format_phone_number(user_attributes)
+    binding.pry
 
     user = User.new(user_attributes)
 
@@ -86,7 +88,13 @@ class UsersController < ApplicationController
                             )
   end
 
-  def add_country_code_to_phone_number!(user_attributes)
+  def format_phone_number(user_attributes)
+    # gets rid of delimitors
+    user_attributes[:phone_number].gsub!(/[\.]/, "")
+    user_attributes[:phone_number].gsub!(/[\-]/, "")
+    user_attributes[:phone_number].gsub!(/[\ ]/, "")
+
+    # this changes phone_number field to include country code before saving record
     user_attributes[:phone_number] = "+" + user_attributes[:country_code] + user_attributes[:phone_number]
   end
 end
