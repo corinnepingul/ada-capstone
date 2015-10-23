@@ -79,8 +79,8 @@ class ApiController < ApplicationController
     new_moment = Moment.new(
               date: date,
               body: moment_info[:body],
-              user_id: user.id
-              # media_url: moment_info[:media_url]
+              user_id: user.id,
+              media_url: moment_info[:media_url]
             )
 
     if new_moment.save
