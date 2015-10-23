@@ -75,6 +75,7 @@ class ApiController < ApplicationController
 
   def create_moment(user, moment_info)
     date = Date.today
+    puts date
 
     new_moment = Moment.new(
               date: date,
@@ -82,18 +83,6 @@ class ApiController < ApplicationController
               user_id: user.id,
               media_url: moment_info[:media_url]
             )
-    print "moment info: "
-    puts moment_info
-
-    print "new_moment: "
-    puts new_moment
-
-    # it's not printing
-    if new_moment.valid?
-      puts "This new_moment is valid."
-    else
-      puts new_moment.errors
-    end
 
     if new_moment.save
       puts "This new_moment was saved!"
