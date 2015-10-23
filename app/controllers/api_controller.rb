@@ -74,9 +74,10 @@ class ApiController < ApplicationController
   end
 
   def create_moment(user, moment_info)
+    puts "i got into the create_moment function"
     date = Date.today
 
-    moment = Moment.new(
+    new_moment = Moment.new(
               date: date,
               body: moment_info[:body],
               user_id: user.id,
@@ -84,14 +85,14 @@ class ApiController < ApplicationController
             )
 
     # it's not printing
-    if moment.valid?
-      puts "This moment is valid."
+    if new_moment.valid?
+      puts "This new_moment is valid."
     else
-      puts moment.errors
+      puts new_moment.errors
     end
 
-    if moment.save
-      puts "This moment was saved!"
+    if new_moment.save
+      puts "This new_moment was saved!"
     end
   end
 end
