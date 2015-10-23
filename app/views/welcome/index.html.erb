@@ -4,7 +4,9 @@
   <div class="">
     Date: <%= moment.date %>
     Moment: <%= moment.body %>
-    Media Url: <%= moment.media_url %>
+    <% unless moment.media_url.nil?  %>
+      Media: <%= image_tag(moment.media_url, size: "100") %>
+    <% end %>
   </div>
 <% end %>
 
