@@ -2,10 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.btn-login {
-  margin: 1em;
+.jumbotron {
+  height: 25em;
   text-align: center;
+}
+
+.jumbotron-title {
+  margin-top: 4em;
+}
+
+.box {
+  padding: 0;
+}
+
+.login-row {
+  margin-top: 10em;
 }
 
 .form-input-box {

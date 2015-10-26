@@ -1,31 +1,35 @@
 <div class="jumbotron">
-  <h2>Stash This Moment</h2>
-  <p>
-    Hold on to the moments that matter. All it takes is a quick and easy text.
-  </p>
+  <div class="container jumbotron-title">
+    <h1 class="megrim-font">Stash This Moment</h1>
+    <p>
+      Hold on to the moments that matter. All it takes is a quick and easy text.
+    </p>
+  </div>
 </div>
 
-<div class="row">
-  <!-- Login Link -->
-  <div class="col-md-4 col-md-offset-1">
-    <%= link_to "Login", "#login-form", "data-toggle" => "modal" %>
-  </div>
 
-  <!-- Login Modal -->
-  <div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-form">
-    <div class="modal-body">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-1">
-          <%= render partial: "sessions/login_form" %>
-        </div>
-      </div>
-    </div>
+<div class="row login-row">
+  <!-- Login Link -->
+  <div class="col-md-2 col-md-offset-3">
+      <%= link_to "Login", "#login-form", "data-toggle" => "modal", class: "btn box" %>
   </div>
 
   <!-- Signup Link -->
-  <div class="col-md-4 col-md-offset-2">
-    <%= link_to "Sign Up", "#signup-form", "data-toggle" => "modal" %>
+  <div class="col-md-2 col-md-offset-2">
+    <%= link_to "Sign Up", "#signup-form", "data-toggle" => "modal", class: "btn box" %>
   </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-form">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-1">
+        <%= render partial: "sessions/login_form" %>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Signup Modal -->
   <div class="modal fade" id="signup-form" tabindex="-1" role="dialog" aria-labelledby="login-form">
@@ -37,4 +41,3 @@
       </div>
     </div>
   </div>
-</div>
