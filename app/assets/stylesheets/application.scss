@@ -18,9 +18,52 @@
 @import "bootstrap";
 
 .megrim-font {
-  font-family: 'Megrim', serif;
+  font-family: 'Megrim', sans-serif;
 }
 
 body {
-  font-family: 'Rajdhani', serif;
+  color: rgb(10, 10, 10);
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(240, 240, 240);
+  padding-top: 6%;
+  padding-bottom: 6%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 2%;
+}
+
+.btn-logout {
+  float: right;
+}
+
+.navbar {
+  padding: 1% 0;
+  border-bottom: 1px solid rgba(100, 100, 100, .75);
+  background-color: rgba(255, 255, 255, .90)
+}
+
+.title-font {
+  font-family: 'Megrim', sans-serif;
+  font-size: 3rem;
+}
+
+a {
+  color: rgb(10, 10, 10);
+}
+
+a:hover {
+  color: rgb(10, 10, 10);
+  text-decoration: none;
+}
+
+// these two change the color of the navbar font
+.navbar-default .navbar-text {
+  color: rgb(10, 10, 10);
+}
+
+.navbar-default .navbar-brand {
+  color: rgb(10, 10, 10);
 }
