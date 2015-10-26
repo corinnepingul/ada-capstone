@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   before_action :set_user, only: [:index]
 
   def index
-    @moments = @user.moments
+    @moments = @user.moments.reverse
   end
 
   private
