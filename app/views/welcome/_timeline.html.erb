@@ -1,21 +1,15 @@
 <section id="cd-timeline">
   <% @moments.each_with_index do |moment, index| %>
-    <% if index % 2 == 0 %>
-      <% hello = "cd-left" %>
-    <% elsif index % 2 == 1 %>
-      <% hello = "cd-right" %>
-    <% end %>
-
-    	<div class="cd-timeline-block cssanimations <%= hello %>">
+    	<div class="cd-timeline-block cssanimations <%= moment_position_class_assignment(index) %>">
     		<div class="cd-timeline-img">
     			<!-- <img src="img/cd-icon-picture.svg" alt="Picture"> -->
     		</div> <!-- cd-timeline-img -->
 
-    		<div class="cd-timeline-content">
-    			<h2> <%= formatted_date(moment.date) %> </h2>
+    		<div class="cd-timeline-content <%= moment_color_class_assignment(index) %>">
+    			<h3 class="<%= moment_date_color_class_assignment(index) %>"><%= formatted_date(moment.date) %></h3>
 
           <% unless moment.media_url.nil?  %>
-            <p><%= image_tag(moment.media_url, size: "100") %></p>
+            <p><%= image_tag(moment.media_url) %></p>
           <% end %>
 
     			<p> <%= moment.body %> </p>
