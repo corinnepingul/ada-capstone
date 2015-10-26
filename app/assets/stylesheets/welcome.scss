@@ -27,12 +27,38 @@
 }
 
 .cd-right {
-  margin-left: 70%;
+  margin-left: 60%;
 }
 
 .cd-left {
   text-align: right;
-  width: 30%;
+  width: 40%;
+}
+
+.cd-timeline-content {
+    position: relative;
+    background: gray;
+    border-radius: 0.25em;
+    padding: 1em;
+    box-shadow: 0 3px 0 #d7e4ed;
+}
+
+.cd-left .cd-timeline-content::before {
+    top: 24px;
+    left: 100%;
+    border-color: transparent;
+    border-left-color: gray;
+}
+
+.cd-timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 100%;
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-right: 7px solid gray;
 }
 
 .cssanimations .cd-timeline-img.is-hidden {
