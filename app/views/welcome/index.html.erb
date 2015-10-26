@@ -1,13 +1,5 @@
 <h2><%= t(:hello, name: @user.username) %></h2>
 
-<% @moments.each do |moment| %>
-  <div class="">
-    Date: <%= moment.date %>
-    Moment: <%= moment.body %>
-    <% unless moment.media_url.nil?  %>
-      Media: <%= image_tag(moment.media_url, size: "100") %>
-    <% end %>
-  </div>
-<% end %>
-
 <%= link_to "Logout", logout_path, method: :delete %>
+
+<%= render partial: "welcome/timeline" %>
