@@ -6,13 +6,13 @@
       <% hello = "cd-right" %>
     <% end %>
 
-    	<div class="cd-timeline-block <%= hello %>">
+    	<div class="cd-timeline-block cssanimations <%= hello %>">
     		<div class="cd-timeline-img">
     			<!-- <img src="img/cd-icon-picture.svg" alt="Picture"> -->
     		</div> <!-- cd-timeline-img -->
 
     		<div class="cd-timeline-content">
-    			<h2> <%= moment.date %> </h2>
+    			<h2> <%= formatted_date(moment.date) %> </h2>
 
           <% unless moment.media_url.nil?  %>
             <p><%= image_tag(moment.media_url, size: "100") %></p>
