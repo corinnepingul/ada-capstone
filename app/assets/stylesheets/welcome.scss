@@ -4,10 +4,10 @@
 
 #cd-timeline {
   position: relative;
-  padding: 2em 0;
+  padding: 3em 0;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 2em;
+  margin-top: 7em;
   margin-bottom: 2em;
 }
 
@@ -18,8 +18,33 @@
   top: 0;
   left: 50%;
   height: 100%;
-  width: 4px;
+  width: 8px;
   background: #d7e4ed;
+  background: -webkit-linear-gradient(top, rgba(175,175,175,0) 0%, rgb(175,175,175) 5%, rgb(175,175,175) 95%, rgba(175,175,175,0) 100%);
+}
+
+.cssanimations .is-hidden {
+  visibility: hidden;
+}
+.cssanimations .bounce-in {
+  visibility: visible;
+  animation: cd-bounce-1 0.5s;
+}
+
+@keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .cd-timeline-block {
@@ -35,52 +60,86 @@
   width: 40%;
 }
 
+// this is the moment box
 .cd-timeline-content {
-    position: relative;
-    background: gray;
-    border-radius: 0.25em;
-    padding: 1em;
-    box-shadow: 0 3px 0 #d7e4ed;
+  position: relative;
+  background: gray;
+  border-radius: 0.25em;
+  padding: 1em;
+  box-shadow: 0 3px 0 #d7e4ed;
 }
 
+// this is the moment box's flag for left boxes
 .cd-left .cd-timeline-content::before {
-    top: 24px;
-    left: 100%;
-    border-color: transparent;
-    border-left-color: gray;
+  left: 100%;
+  border-color: transparent;
+  border-left-color: gray;
 }
 
+// this is the momen't box's flag
 .cd-timeline-content::before {
-    content: '';
-    position: absolute;
-    top: 16px;
-    right: 100%;
-    height: 0;
-    width: 0;
-    border: 7px solid transparent;
-    border-right: 7px solid gray;
+  content: '';
+  position: absolute;
+  top: 24px;
+  right: 100%;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-right: 7px solid gray;
 }
 
-.cssanimations .cd-timeline-img.is-hidden {
-  visibility: hidden;
+// this is for the circles on the timeline
+.cd-timeline-block::before {
+  content: ' ';
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  margin-left: -11px;
+  margin-top: 18px;
+  background: #fff;
+  border-radius: 50%;
+  border: 4px solid rgb(112, 2, 155);
+  z-index: 10;
 }
-.cssanimations .cd-timeline-img.bounce-in {
-  visibility: visible;
-  animation: cd-bounce-1 0.6s;
+
+.cd-timeline-content h3 {
+  border-radius: 2px;
+  margin-top: 0px;
+  padding: 3px;
 }
 
-@keyframes cd-bounce-1 {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
+// styling the dates on the moments
+.color-light-orange {
+  background-color: rgba(255, 166, 92, .75);
+}
+
+.color-light-red {
+  background-color: rgba(255, 136, 127, .75);
+}
+
+.color-light-blue {
+  background-color: rgba(160, 245, 231, .75);
   }
 
-  60% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
+.color-light-green {
+  background-color: rgba(222, 252, 169, .75);
+}
 
-  100% {
-    transform: scale(1);
-  }
+// background colors for moments
+.color-orange {
+  background-color: rgb(255, 142, 65);
+}
+
+.color-red {
+  background-color: rgb(255, 98, 65);
+}
+
+.color-blue {
+  background-color: rgb(61, 241, 206);
+}
+
+.color-green {
+  background-color: rgb(203, 249, 121);
 }
