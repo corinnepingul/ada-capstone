@@ -2,23 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.jumbotron {
+.container-fluid .jumbotron {
+  background-color: white;
   height: 25em;
   text-align: center;
+  margin-top: -5%;
 }
 
 .jumbotron-title {
   margin-top: 4em;
 }
 
-.box {
-  padding: 0;
-}
-
 .login-row {
-  margin-top: 10em;
+  margin-top: 5em;
 }
 
 .form-input-box {
   margin: 1em;
+}
+
+.btn-login {
+  border: 5px solid rgb(61, 241, 206);
+}
+
+.btn-signup {
+  border: 5px solid rgb(255, 98, 65);
+}
+
+.btn-circle-lg {
+    display: inline-block;
+    cursor: pointer;
+    width: 10em;
+    height: 10em;
+    text-align: center;
+    padding: 4.25em 0;
+    line-height: 2.00;
+    border-radius: 50%;
+    background-color: transparent;
+    line-height: 1.42857143;
 }
