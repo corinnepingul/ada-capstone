@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   before_action :set_user, only: [:create]
 
   def new
+    redirect_to root_path if session[:id]
     @user = User.new
   end
 
