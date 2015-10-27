@@ -72,18 +72,10 @@ class ApiController < ApplicationController
   end
 
   def create_moment(user, moment_params)
-    print "zipcode: "
-    puts moment_params[:zip_code]
     zip = ZipCodes.identify(moment_params[:zip_code])
     timezone = zip[:time_zone]
 
-    print "timezone: "
-    puts timezone
-
     date = DateTime.now.in_time_zone(timezone)
-
-    print "date: "
-    puts date
 
     new_moment = Moment.new(
               date: date,
