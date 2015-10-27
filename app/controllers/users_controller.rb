@@ -12,10 +12,7 @@ class UsersController < ApplicationController
 
     # this changes the phone_number field to delete any "-", " ", or "." characters
     # and adds country code to the front
-    phone = format_phone_number(user_attributes)
-
-    print "phone from format number: "
-    puts phone
+    format_phone_number(user_attributes)
 
     user = User.new(user_attributes)
 
