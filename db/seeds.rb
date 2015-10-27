@@ -17,7 +17,7 @@ CSV.foreach("db/moments.csv", headers: true, header_converters: :symbol, convert
   row[:media_url] = nil if row[:media_url] == "nil"
 
   Moment.create(
-    date: Date.parse(row[:date]),
+    date: DateTime.parse(row[:date]),
     body: row[:body],
     user_id: row[:user_id],
     media_url: row[:media_url]

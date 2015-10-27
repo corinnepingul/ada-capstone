@@ -11,7 +11,7 @@ FactoryGirl.define do
   end
 
   factory :moment do
-    date Date.new(1992, 9, 14)
+    date DateTime.new(1992, 9, 14)
     body "This is when I was born. #imhere"
     user # could pass in params here
     media_url nil
