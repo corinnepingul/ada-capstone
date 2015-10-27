@@ -80,6 +80,9 @@ class ApiController < ApplicationController
 
     date = DateTime.now.in_time_zone(timezone)
 
+    print "date: "
+    puts date
+
     new_moment = Moment.new(
               date: date,
               body: moment_params[:body],
