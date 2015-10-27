@@ -8,7 +8,10 @@ class AuthyClient
   end
 
   def self.send_verification_code(authy_id)
-    Authy::API.request_sms(id: authy_id, force: true)
+    puts "I made it to the Authy client."
+    authy = Authy::API.request_sms(id: authy_id, force: true)
+    print "Here are the authy errors: "
+    puts authy.errors
   end
 
   def self.verify_token(authy_id, token)

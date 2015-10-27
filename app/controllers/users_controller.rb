@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       session[:id] = user.id
       register_authy_user(user)
       send_verification_code_to_current_user
-      flash[:message] = MESSAGES[:account_verified]
+      flash[:message] = MESSAGES[:needs_verification]
 
       redirect_to verify_path
     else
@@ -64,6 +64,7 @@ class UsersController < ApplicationController
   private
 
   def send_verification_code_to_current_user
+    puts "I made it to the send v code in users controller"
     user = current_user
 
     # Send an SMS with verifcation code to user, see authy_client.rb
