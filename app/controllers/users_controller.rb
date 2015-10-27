@@ -12,7 +12,10 @@ class UsersController < ApplicationController
 
     # this changes the phone_number field to delete any "-", " ", or "." characters
     # and adds country code to the front
-    format_phone_number(user_attributes)
+    phone = format_phone_number(user_attributes)
+
+    print "phone from format number: "
+    puts phone
 
     user = User.new(user_attributes)
 
@@ -64,7 +67,6 @@ class UsersController < ApplicationController
   private
 
   def send_verification_code_to_current_user
-    puts "I made it to the send v code in users controller"
     user = current_user
 
     # Send an SMS with verifcation code to user, see authy_client.rb
