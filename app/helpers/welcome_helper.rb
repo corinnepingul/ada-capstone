@@ -1,6 +1,7 @@
 module WelcomeHelper
   def formatted_date(date)
-    return date.strftime('%b %m, %Y')
+
+    return Date.parse(date).strftime('%b %d, %Y')
   end
 
   def moment_position_class_assignment(index)
