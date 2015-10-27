@@ -33,6 +33,8 @@ gem 'twilio-ruby'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
+# add this for zip code to timezone conversion
+gem 'zip-codes'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

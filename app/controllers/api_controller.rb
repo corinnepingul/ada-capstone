@@ -33,20 +33,17 @@ class ApiController < ApplicationController
   # "ApiVersion"=>"2010-04-01", "controller"=>"api", "action"=>"received_message"}
 
   def received_message
-    moment = parse_message(params)
+    moment_params = parse_message(params)
 
     # Finds the user who's sending in the text (may need to parse this data)
-    user = find_user_by_phone_number(moment[:user_phone_number])
+    user = find_user_by_phone_number(moment_params[:user_phone_number])
 
     # If the user is found, create a new moment for them
     if user.nil?
       # TODO: Error Handling
-      puts "user is nil"
     else
-      puts "ready to create moment"
-      puts moment
       # IS IT AN SMS OR MMS?
-      create_moment(user, moment)
+      create_moment(user, moment_params)
     end
   end
 
@@ -56,7 +53,8 @@ class ApiController < ApplicationController
     moment = {
       body: params["Body"],
       user_phone_number: params["From"],
-      media_url: nil
+      media_url: nil,
+      zip_code: params["FromZip"]
     }
 
     # Assigns media url if it exists
@@ -73,14 +71,20 @@ class ApiController < ApplicationController
     User.where(phone_number: phone_number).first
   end
 
-  def create_moment(user, moment_info)
-    date = DateTime.now
+  def create_moment(user, moment_params)
+    print "zipcode: "
+    puts moment_params[:zip_code]
+    timezone = ZipCodes.identify(moment_params[:zip_code])
+    print "timezone: "
+    puts timezone
+
+    date = DateTime.now.in_time_zone(timezone)
 
     new_moment = Moment.new(
               date: date,
-              body: moment_info[:body],
+              body: moment_params[:body],
               user_id: user.id,
-              media_url: moment_info[:media_url]
+              media_url: moment_params[:media_url]
             )
 
     if new_moment.save
