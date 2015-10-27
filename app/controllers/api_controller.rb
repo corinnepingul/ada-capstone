@@ -75,7 +75,7 @@ class ApiController < ApplicationController
     print "zipcode: "
     puts moment_params[:zip_code]
     zip = ZipCodes.identify(moment_params[:zip_code])
-    timezone = zip[:timezone]
+    timezone = zip[:time_zone]
 
     print "timezone: "
     puts timezone
