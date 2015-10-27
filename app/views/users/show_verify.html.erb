@@ -1,20 +1,26 @@
-<h1>Just To Be Safe...</h1>
-<p>
-    Your account has been created, but we need to make sure you're a human
-    in control of the phone number you gave us. Can you please enter the
-    verification code we just sent to your phone?
-</p>
-<%= form_tag users_verify_path do %>
-  <div class="form-group">
-    <%= label_tag :code, "Verification Code:" %>
-    <%= text_field_tag :token, '', class: "form-control", id: "authy-token" %>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 verification-box">
+    <h1 class="verification-title-font">Stash This Moment</h1>
+    <p>Please validate your account by entering the validation code sent to your phone.</p>
+    <%= form_tag users_verify_path do %>
+      <div class="form-group">
+        <%= label_tag :code, "Verification Code:" %>
+        <%= text_field_tag :token, '', class: "form-control", id: "authy-token" %>
+      </div>
+      <button type="submit" class="verify-btn verification-btn">Verify Token</button>
+    <% end %>
   </div>
-  <button type="submit" class="btn btn-primary">Verify Token</button>
-<% end -%>
+</div>
 
-<hr>
-<%= form_tag users_resend_path do %>
-  <button type="submit" class="btn">Resend code</button>
-<% end -%>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 ">
+    <%= form_tag users_resend_path do %>
+      <button type="submit" class="verify-btn resend-verification-btn">Resend code</button>
+    <% end %>
 
-<%= link_to "Cancel", logout_path, method: :delete, class: "btn btn-default" %>
+    <%= form_tag logout_path, method: "delete" do %>
+      <button type="submit" class="verify-btn cancel-verification-btn">Cancel</button>
+    <% end %>
+  </div>
+
+</div>

@@ -10,27 +10,39 @@
 
 <div class="row login-row">
   <!-- Login Link -->
-  <div class="col-sm-2 col-sm-offset-2">
+  <div class="col-sm-2 col-sm-offset-2 center-contents">
       <%= link_to "Login", "#login-form", "data-toggle" => "collapse", class: "btn-login btn-circle-lg" %>
   </div>
 
   <!-- Signup Link -->
-  <div class="col-sm-2 col-sm-offset-4">
+  <div class="col-sm-2 col-sm-offset-4 center-contents">
     <%= link_to "Sign Up", "#signup-form", "data-toggle" => "collapse", class: "btn-signup btn-circle-lg" %>
   </div>
 </div>
 
 <!-- Login collapse -->
 <div class="row form-row">
-  <div class="col-sm-4 col-sm-offset-1">
+  <div class="col-sm-4 col-sm-offset-1 center-contents">
     <div id="login-form" class="login-modal-form collapse">
       <%= render partial: "sessions/login_form" %>
     </div>
   </div>
 <!-- Signup collapse -->
-  <div class="col-sm-4 col-sm-offset-2">
+  <div class="col-sm-4 col-sm-offset-2 center-contents">
     <div id="signup-form" class="signup-modal-form collapse">
       <%= render partial: "sessions/signup_form" %>
+    </div>
+  </div>
+</div>
+
+<!-- Verification modal -->
+<div class="row">
+  <div class="modal fade" id="verify-form" tabindex="-1" role="dialog" aria-labelledby="login-form">
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+        </div>
+      </div>
     </div>
   </div>
 </div>
