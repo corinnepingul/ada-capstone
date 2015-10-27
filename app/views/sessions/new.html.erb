@@ -10,34 +10,27 @@
 
 <div class="row login-row">
   <!-- Login Link -->
-  <div class="col-sm-2 col-sm-offset-3">
-      <%= link_to "Login", "#login-form", "data-toggle" => "modal", class: "btn-login btn-circle-lg" %>
+  <div class="col-sm-2 col-sm-offset-2">
+      <%= link_to "Login", "#login-form", "data-toggle" => "collapse", class: "btn-login btn-circle-lg" %>
   </div>
 
   <!-- Signup Link -->
-  <div class="col-sm-2 col-sm-offset-2">
-    <%= link_to "Sign Up", "#signup-form", "data-toggle" => "modal", class: "btn-signup btn-circle-lg" %>
+  <div class="col-sm-2 col-sm-offset-4">
+    <%= link_to "Sign Up", "#signup-form", "data-toggle" => "collapse", class: "btn-signup btn-circle-lg" %>
   </div>
 </div>
 
-<!-- Login Modal -->
-<div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-form">
-  <div class="modal-body">
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-4 login-modal-form">
-        <%= render partial: "sessions/login_form" %>
-      </div>
+<!-- Login collapse -->
+<div class="row form-row">
+  <div class="col-sm-4 col-sm-offset-1">
+    <div id="login-form" class="login-modal-form collapse">
+      <%= render partial: "sessions/login_form" %>
+    </div>
+  </div>
+<!-- Signup collapse -->
+  <div class="col-sm-4 col-sm-offset-2">
+    <div id="signup-form" class="signup-modal-form collapse">
+      <%= render partial: "sessions/signup_form" %>
     </div>
   </div>
 </div>
-
-  <!-- Signup Modal -->
-  <div class="modal fade" id="signup-form" tabindex="-1" role="dialog" aria-labelledby="login-form">
-    <div class="modal-body">
-      <div class="row">
-        <div class="col-sm-4 col-sm-offset-4 signup-modal-form">
-          <%= render partial: "sessions/signup_form" %>
-        </div>
-      </div>
-    </div>
-  </div>
