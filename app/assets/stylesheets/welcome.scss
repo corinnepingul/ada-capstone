@@ -84,11 +84,11 @@
 
 // this is the moment box
 .cd-timeline-content {
+  box-shadow: 1px 1px 2px #666;
   position: relative;
   background: gray;
   border-radius: 0.25em;
   padding: 1em;
-  box-shadow: 0 3px 0 #d7e4ed;
 }
 
 // this is the moment box's flag for left boxes
