@@ -33,6 +33,9 @@ class UsersController < ApplicationController
   def show_verify
     # if there's no user logged in, redirect to registration path
     return redirect_to registration_path unless session[:id]
+
+    user = User.find(session[:id])
+    @user_phone_number = user.phone_number
   end
 
   def verify

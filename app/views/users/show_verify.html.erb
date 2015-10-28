@@ -1,14 +1,16 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4 verification-box">
     <h1 class="verification-title-font">Stash This Moment</h1>
-    <p>Please validate your account by entering the validation code sent to your phone.</p>
+    <p>Please validate your account by entering the verification code sent to you at <%= format_phone_number_for_display(@user_phone_number) %>.</p>
     <%= form_tag users_verify_path do %>
       <div class="form-group">
-        <%= label_tag :code, "Verification Code:" %>
+        <%= label_tag :code, "Verification Code:", class: "hidden" %>
         <%= text_field_tag :token, '', class: "form-control", id: "authy-token" %>
       </div>
       <button type="submit" class="verify-btn verification-btn">Verify Token</button>
     <% end %>
+
+    <p class="center-contents"><small>Not you? Press "Cancel" below.</small></p>
   </div>
 </div>
 
