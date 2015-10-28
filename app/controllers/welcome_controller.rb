@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
 
   def index
     @moments = @user.moments.reverse
+    @homepage = "homepage"
   end
 
   private
