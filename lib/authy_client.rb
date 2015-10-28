@@ -1,7 +1,5 @@
 class AuthyClient
   def self.register_user(user)
-    print "user's phone number: "
-    puts user.phone_number
     Authy::API.register_user(
       email: user.email,
       cellphone: user.phone_number[-10..-1], # this takes out the country code from the phone_number
