@@ -3,10 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container-fluid .jumbotron {
-  background-color: white;
-  height: 25em;
+  border: 5px solid rgb(222, 252, 169);
+  background-color: rgba(222, 252, 169, .45);
+  height: 27em;
   text-align: center;
-  margin-top: -5%;
+  margin-top: 1em;
 }
 
 .jumbotron-title {
@@ -60,7 +61,7 @@
 }
 
 .login-modal-form {
-  margin: 20% 30%;
+  margin: 17% 30%;
   padding: 2em;
   border-radius: 5px;
   border: 5px solid rgb(61, 241, 206);
@@ -68,7 +69,7 @@
 }
 
 .signup-modal-form {
-  margin: 15% 30%;
+  margin: 13% 30%;
   padding: 2em;
   border-radius: 5px;
   border: 5px solid rgb(255, 98, 65);
@@ -102,7 +103,10 @@
 }
 
 .verification-box {
-  padding: 2em;
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 1em;
   border-radius: 5px;
   margin: 2em 15px;
   border: 5px solid rgb(222, 252, 169);
