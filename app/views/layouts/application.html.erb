@@ -18,6 +18,10 @@
     </div>
 
     <%= yield %>
+
+    <footer>
+      <small><%= "background image © Anthony Quintano" if background_photo_class(session[:id], @homepage) == "not-logged-in" && @homepage == nil %></small>
+    </footer>
   </div>
 </body>
 </html>
