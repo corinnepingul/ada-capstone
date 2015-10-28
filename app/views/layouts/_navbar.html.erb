@@ -3,7 +3,8 @@
     <div class="container-fluid">
       <%= link_to "Stash This Moment", root_path, class: "navbar-brand title-font" %>
       <ul class="nav navbar-nav navbar-right">
-          <li><p class="navbar-text"><%= @user.username %></p></li>
+        <li><p class="navbar-text">Your STM number: (504) 315-7972</p></li>
+        <li><p class="navbar-text"><%= @user.username %></p></li>
         <li><p class="navbar-text"><%= link_to "Logout", logout_path, method: :delete %></p></li>
       </ul>
     </div>
