@@ -41,11 +41,11 @@ footer {
 }
 
 body.logged-in {
-  background-image: url("boat.jpg");
+  background-image: image-url("boat.jpg");
 }
 
 body.not-logged-in {
-  background-image: url("nye.jpg");
+  background-image: image-url("nye.jpg");
 }
 
 img {
