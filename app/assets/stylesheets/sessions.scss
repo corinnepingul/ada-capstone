@@ -4,7 +4,7 @@
 
 .container-fluid .jumbotron {
   border: 5px solid rgb(222, 252, 169);
-  background-color: rgba(222, 252, 169, .45);
+  background-color: rgba(222, 252, 169, .80);
   height: 27em;
   text-align: center;
   margin-top: 1em;
@@ -30,22 +30,22 @@
 
 .btn-login {
   border: 5px solid rgb(61, 241, 206);
-  background-color: rgba(61, 241, 206, .45);
+  background-color: rgba(61, 241, 206, .70);
   font-size: 1.2em;
 }
 
 .btn-login:hover {
-  background-color: rgb(61, 241, 206);
+  background-color: rgba(61, 241, 206, .85);
 }
 
 .btn-signup {
   border: 5px solid rgb(255, 98, 65);
-  background-color: rgba(255, 98, 65, .65);
+  background-color: rgba(255, 98, 65, .70);
   font-size: 1.2em;
 }
 
 .btn-signup:hover {
-  background-color: rgb(255, 98, 65);
+  background-color: rgba(255, 98, 65, .85);
 }
 
 .btn-circle-lg {
@@ -110,7 +110,11 @@
   border-radius: 5px;
   margin: 2em 15px;
   border: 5px solid rgb(222, 252, 169);
-  background-color: rgba(222, 252, 169, .45);
+  background-color: rgba(222, 252, 169, .80);
+}
+
+.verification-field {
+  background-color: rgb(245, 245, 245);
 }
 
 .verification-title-font {
@@ -139,18 +143,18 @@
 
 .resend-verification-btn {
   // border: 2px solid rgb(61, 241, 206);
-  background-color: rgb(61, 241, 206);
+  background-color: rgba(61, 241, 206, .75);
 }
 
 .resend-verification-btn:hover {
-  background-color: rgba(61, 241, 206, .45);
+  background-color: rgb(61, 241, 206);
 }
 
 .cancel-verification-btn {
   // border: 2px solid rgb(255, 98, 65);
-  background-color: rgb(255, 98, 65);
+  background-color: rgba(255, 98, 65, .75);
 }
 
 .cancel-verification-btn:hover {
-  background-color: rgba(255, 98, 65, .45);
+  background-color: rgb(255, 98, 65);
 }

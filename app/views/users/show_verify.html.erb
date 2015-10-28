@@ -3,7 +3,7 @@
     <h1 class="verification-title-font">Stash This Moment</h1>
     <p>Please validate your account by entering the verification code sent to you at <%= format_phone_number_for_display(@user_phone_number) %>.</p>
     <%= form_tag users_verify_path do %>
-      <div class="form-group">
+      <div class="form-group verification-field">
         <%= label_tag :code, "Verification Code:", class: "hidden" %>
         <%= text_field_tag :token, '', class: "form-control", id: "authy-token" %>
       </div>
