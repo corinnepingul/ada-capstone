@@ -1,12 +1,14 @@
 <section id="cd-timeline">
   <% @moments.each_with_index do |moment, index| %>
+    <div class=" <%= moment_date_color_class_assignment(index) %>">
     	<div class="cd-timeline-block cssanimations <%= moment_position_class_assignment(index) %>">
     		<div class="cd-timeline-img">
     			<!-- <img src="img/cd-icon-picture.svg" alt="Picture"> -->
     		</div> <!-- cd-timeline-img -->
 
-    		<div class="cd-timeline-content <%= moment_color_class_assignment(index) %>">
-    			<h3 class="<%= moment_date_color_class_assignment(index) %>"><%= formatted_date(moment.date) %></h3>
+        <!-- moment_color_class_assignment(index) -->
+    		<div class="cd-timeline-content">
+    			<h3><%= formatted_date(moment.date) %></h3>
 
           <% unless moment.media_url.nil?  %>
             <p><%= image_tag(moment.media_url) %></p>
@@ -15,5 +17,6 @@
     			<p> <%= moment.body %> </p>
     		</div> <!-- cd-timeline-content -->
     	</div> <!-- cd-timeline-block -->
+    </div>
   <% end %>
 </section>

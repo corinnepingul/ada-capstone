@@ -23,13 +23,13 @@ module WelcomeHelper
 
   def moment_date_color_class_assignment(index)
     if index % 4 == 0
-      color = "color-light-orange"
+      color = "color-orange"
     elsif index % 4 == 1
-      color = "color-light-red"
+      color = "color-red"
     elsif index % 4 == 2
-      color = "color-light-blue"
+      color = "color-blue"
     elsif index % 4 == 3
-      color = "color-light-green"
+      color = "color-green"
     end
   end
 end

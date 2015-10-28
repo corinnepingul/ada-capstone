@@ -40,9 +40,8 @@
   top: 0;
   left: 50%;
   height: 100%;
-  width: 8px;
-  background: #d7e4ed;
-  background: -webkit-linear-gradient(top, rgba(175,175,175,0) 0%, rgb(175,175,175) 5%, rgb(175,175,175) 95%, rgba(175,175,175,0) 100%);
+  width: 4px;
+  background: -webkit-linear-gradient(top, rgba(200,200,200,0) 0%, rgb(200,200,200) 5%, rgb(200,200,200) 95%, rgba(200,200,200,0) 100%);
 }
 
 .cssanimations .is-hidden {
@@ -74,19 +73,19 @@
 }
 
 .cd-right {
-  margin-left: 60%;
+  margin-left: 55%;
 }
 
 .cd-left {
   text-align: right;
-  width: 40%;
+  width: 45%;
 }
 
 // this is the moment box
 .cd-timeline-content {
-  box-shadow: 1px 1px 2px #666;
+  background-color: #f8f8f8;
+  box-shadow: 1px 1px 3px #666;
   position: relative;
-  background: gray;
   border-radius: 0.25em;
   padding: 1em;
 }
@@ -95,10 +94,10 @@
 .cd-left .cd-timeline-content::before {
   left: 100%;
   border-color: transparent;
-  border-left-color: gray;
+  border-left-color: #f8f8f8;
 }
 
-// this is the momen't box's flag
+// this is the moment box's flag
 .cd-timeline-content::before {
   content: '';
   position: absolute;
@@ -107,7 +106,28 @@
   height: 0;
   width: 0;
   border: 7px solid transparent;
-  border-right: 7px solid gray;
+  border-right: 7px solid #f8f8f8;
+}
+
+.cd-timeline-content p {
+  color: black;
+}
+
+
+.color-orange .cd-timeline-block::before {
+  border: 4px solid rgb(255, 142, 65);
+}
+
+.color-red .cd-timeline-block::before {
+  border: 4px solid rgb(255, 98, 65);
+}
+
+.color-blue .cd-timeline-block::before {
+  border: 4px solid rgb(61, 241, 206);
+}
+
+.color-green .cd-timeline-block::before {
+  border: 4px solid rgb(203, 249, 121);
 }
 
 // this is for the circles on the timeline
@@ -118,11 +138,10 @@
   height: 30px;
   position: absolute;
   left: 50%;
-  margin-left: -11px;
+  margin-left: -12px;
   margin-top: 18px;
-  background: #fff;
+  background: rgb(240, 240, 240);
   border-radius: 50%;
-  border: 4px solid rgb(112, 2, 155);
   z-index: 10;
 }
 
@@ -133,35 +152,18 @@
 }
 
 // styling the dates on the moments
-.color-light-orange {
-  background-color: rgba(255, 166, 92, .75);
-}
-
-.color-light-red {
-  background-color: rgba(255, 136, 127, .75);
-}
-
-.color-light-blue {
-  background-color: rgba(160, 245, 231, .75);
-  }
-
-.color-light-green {
-  background-color: rgba(222, 252, 169, .75);
-}
-
-// background colors for moments
 .color-orange {
-  background-color: rgb(255, 142, 65);
+  color: rgb(255, 142, 65);
 }
 
 .color-red {
-  background-color: rgb(255, 98, 65);
+  color: rgb(255, 98, 65);
 }
 
 .color-blue {
-  background-color: rgb(61, 241, 206);
-}
+  color: rgb(61, 241, 206);
+  }
 
 .color-green {
-  background-color: rgb(203, 249, 121);
+  color: rgb(203, 249, 121);
 }
