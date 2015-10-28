@@ -9,7 +9,7 @@
   <link href="https://www.authy.com/form.authy.min.css" media="screen" rel="stylesheet" type="text/css">
   <script src="https://www.authy.com/form.authy.min.js" type="text/javascript"></script>
 </head>
-<body class=<%= background_photo_class(session[:id], @homepage) %>>
+<body class=<%= background_photo_class(session[:id], @homepage, @moments) %>>
   <%= render partial: "layouts/navbar" %>
 
   <div class="container-fluid">
@@ -20,7 +20,7 @@
     <%= yield %>
 
     <footer>
-      <small><%= "background image © Anthony Quintano" if background_photo_class(session[:id], @homepage) == "not-logged-in" && @homepage == nil %></small>
+      <small><%= "background image © Anthony Quintano" if background_photo_class(session[:id], @homepage, @moments) == "not-logged-in" && @homepage == nil %></small>
     </footer>
   </div>
 </body>

@@ -3,12 +3,17 @@ module ApplicationHelper
     session_id ? "flash_message_margin" : ""
   end
 
-  def background_photo_class(session_id, homepage)
+  def background_photo_class(session_id, homepage, moments)
     # boat photo for verification, nye photo for registration
     class_name = session_id ? "logged-in" : "not-logged-in"
 
     # if we're on the homepage, don't load a photo
-    class_name = homepage unless homepage.nil?
+    if moments && moments.empty?
+      class_name = "welcome"
+    elsif homepage
+      class_name = homepage
+    end
+
     return class_name
   end
 end
