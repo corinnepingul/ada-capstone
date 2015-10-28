@@ -25,9 +25,22 @@ body {
   color: rgb(10, 10, 10);
   font-family: 'Roboto', sans-serif;
   background-color: rgb(240, 240, 240);
-  // padding-top: 6%;
   padding-bottom: 8%;
   margin-bottom: 10px;
+  height: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+body.boat {
+  background-image: url("boat.jpg");
+}
+
+body.nye {
+  background-image: url("nye.jpg");
 }
 
 img {

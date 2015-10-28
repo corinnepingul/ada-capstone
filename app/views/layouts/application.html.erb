@@ -9,7 +9,7 @@
   <link href="https://www.authy.com/form.authy.min.css" media="screen" rel="stylesheet" type="text/css">
   <script src="https://www.authy.com/form.authy.min.js" type="text/javascript"></script>
 </head>
-<body>
+<body class=<%= background_photo(session[:id]) %>>
   <%= render partial: "layouts/navbar" %>
 
   <div class="container-fluid">
