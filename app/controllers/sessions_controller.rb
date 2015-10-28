@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       redirect_to root_path(@user)
 
     # If user is signed up AND NOT verified:
-    elsif user_is_signed_up(@user)
+  elsif user_is_signed_up(@user)
       session[:id] = @user.id
       flash[:notice] = NOTICES[:needs_verification]
 
