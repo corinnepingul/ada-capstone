@@ -70,7 +70,11 @@ img {
 .navbar {
   padding: 1% 0;
   border-bottom: 1px solid rgba(100, 100, 100, .75);
-  background-color: rgba(255, 255, 255, .90)
+}
+
+.stm_phone_number:before {
+	content:"☎ ";
+	font-size: 1em;
 }
 
 .navbar-text {
