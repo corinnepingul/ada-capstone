@@ -1,1 +1,5 @@
-<%= render partial: "welcome/timeline" %>
+<% if @moments.empty? %>
+  <%= render partial: "welcome/new_user" %>
+<% else %>
+  <%= render partial: "welcome/timeline" %>
+<% end %>
