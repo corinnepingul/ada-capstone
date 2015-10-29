@@ -59,6 +59,10 @@ img {
   border-radius: 2%;
 }
 
+.form-actions {
+  border-radius: 20px;
+}
+
 .flash_message_margin {
   margin-top: 80px;
 }
@@ -115,9 +119,10 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+a:hover, a:visited, a:active, a:focus {
   color: rgb(10, 10, 10);
   text-decoration: none;
+  outline: none;
 }
 
 // these two change the color of the navbar font
