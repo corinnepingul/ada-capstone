@@ -1,5 +1,6 @@
-<% if @moments.empty? %>
+<% if @user.moments.count == 0 %>
   <%= render partial: "welcome/new_user" %>
 <% else %>
+  <%= render partial: "welcome/timeline_years" %>
   <%= render partial: "welcome/timeline" %>
 <% end %>
