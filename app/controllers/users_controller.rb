@@ -51,9 +51,9 @@ class UsersController < ApplicationController
 
       redirect_to root_path
     else
-      flash.now[:danger] = ERRORS[:incorrect_verification_code]
+      flash[:danger] = ERRORS[:incorrect_verification_code]
 
-      render :show_verify
+      redirect_to verify_path
     end
   end
 
