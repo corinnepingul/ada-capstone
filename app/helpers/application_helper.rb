@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def flash_message_margin(session_id)
-    session_id ? "flash_message_margin" : ""
+  def flash_message_margin(session_id, homepage)
+    session_id && homepage ? "flash_message_margin" : ""
   end
 
   def background_photo_class(session_id, homepage, moments)

@@ -13,7 +13,7 @@
   <%= render partial: "layouts/navbar" %>
 
   <div class="container-fluid">
-    <div class=<%= flash_message_margin(session[:id]) %>>
+    <div class=<%= flash_message_margin(session[:id], @homepage) %>>
       <%= render partial: "layouts/flash_messages" %>
     </div>
 
