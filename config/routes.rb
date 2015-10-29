@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # HOMEPAGE
   root "welcome#index"
 
+
   # FOR LOGIN/LOGOUT
   get "/registration", to: "sessions#new", as: "registration" # login/signup page
   post "/login", to: "sessions#create", as: "login"           # creates session -> homepage
@@ -18,4 +19,7 @@ Rails.application.routes.draw do
 
   # API
   post "/sms/received_message", to: "api#received_message"
+
+  # year
+  get "/users:year", to: "welcome#year", as: "year"
 end
