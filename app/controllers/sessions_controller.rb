@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       session[:id] = @user.id
       flash[:messages] = MESSAGES[:successful_login]
 
-      redirect_to root_path(@user)
+      redirect_to root_path
 
     # If user is signed up AND NOT verified:
   elsif user_is_signed_up(@user)
