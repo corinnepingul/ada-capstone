@@ -1,0 +1,5 @@
+<% if @moments.empty? %>
+  <%= render partial: "moments/empty_search" %>
+<% else %>
+  <%= render partial: "welcome/timeline" %>
+<% end %>

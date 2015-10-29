@@ -8,7 +8,7 @@ module ApplicationHelper
     class_name = session_id ? "logged-in" : "not-logged-in"
 
     # if we're on the homepage, don't load a photo
-    if moments && moments.empty?
+    if moments && moments.empty? && homepage == "homepage"
       class_name = "welcome"
     elsif homepage
       class_name = homepage
