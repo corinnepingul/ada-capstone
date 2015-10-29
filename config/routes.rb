@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   # For new Users
   resources :users, only: [:create]
 
+  # Searching a moment
+  post "moments/search", to: "moments#search", as: "search"
+
   # API
   post "/sms/received_message", to: "api#received_message"
 end
