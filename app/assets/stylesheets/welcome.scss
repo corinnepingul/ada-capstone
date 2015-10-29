@@ -166,3 +166,21 @@
 .color-green {
   color: rgb(203, 249, 121);
 }
+
+@media screen and (min-width: 768px) {
+	.image-modal {
+    width: 50%;
+    margin-top: 40px;
+    margin-left: 25%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-modal {
+    margin: 25px;
+  }
+}
+
+.image-modal p {
+  color: black;
+}

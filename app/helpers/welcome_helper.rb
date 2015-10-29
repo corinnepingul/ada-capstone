@@ -32,4 +32,12 @@ module WelcomeHelper
       color = "color-green"
     end
   end
+
+  def image_data_target(index)
+    "#image-modal-" + index.to_s
+  end
+
+  def image_modal_id(index)
+    "image-modal-" + index.to_s
+  end
 end
