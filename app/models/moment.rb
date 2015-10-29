@@ -7,4 +7,8 @@ class Moment < ActiveRecord::Base
   validates :date, presence: true
   validates :body, presence: true
   validates :user_id, presence: true
+
+  # Scopes ---------------------------------------------------------------------
+  scope :user, -> (user_id) { where(user_id: user_id) }
+  scope :search_body, -> (search_term) { where("body LIKE ?", "%#{search_term}%") }
 end
