@@ -1,0 +1,9 @@
+<div class="span11" style="overflow: auto">
+    <div class="row-fluid">
+      <% @years.each do |year| %>
+        <div class="col-lg-3 year-btn <%= year %>">
+          <%= link_to year, year_path(year), class: "col-lg-3" %>
+        </div>
+      <% end %>
+    </div>
+</div>
