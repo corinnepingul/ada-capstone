@@ -24,4 +24,26 @@ $(document).ready(function() {
   			( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) && $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
   		});
   	}
+
+  $(".year-btn").click(function(event) {
+    event.preventDefault();
+    var url = "/";
+    var year = $(this).text();
+
+    $.ajax(url, {
+      type: "GET",
+      dataType: "html",
+      data: { year: year },
+      success: function(data) {
+        var newTimeline = data;
+        $('#cd-timeline').replaceWith(newTimeline);
+        timelineBlocks = $('.cd-timeline-block');
+
+        hideBlocks(timelineBlocks, offset);
+      },
+      error: function(data, err) {
+        console.log(err);
+      }
+    });
+  });
 });
