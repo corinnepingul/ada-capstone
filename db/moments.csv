@@ -1,19 +1,43 @@
-date,body,user_id,media_url
-"1992-09-14","first birthday",1,https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MM7f569d3462c0e5e1454653e161d964a3/Media/ME802aa959b721a136ed519d0e73980602
-"2010-08-29","first day of college at Whitman!!! WOAH! #lifeisgood",1,https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MM7f569d3462c0e5e1454653e161d964a3/Media/ME802aa959b721a136ed519d0e73980602
-"2015-03-30","got into Ada today. Life is good. #lifeisgood",1,nil
-"1992-09-14","first day walking",2,nil
-"2010-08-29","omg so many memories",2,nil
-"2015-03-30","went on a walk with a friend and talked about all the things",2,nil
-"1992-09-14","had a birthday party for my sister",3,nil
-"2010-08-29","played my last game in high school. #sadness",3,https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MM7f569d3462c0e5e1454653e161d964a3/Media/ME802aa959b721a136ed519d0e73980602
-"2015-03-30","came down with a cold from being outside for too long. #sickness",3,https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MM7f569d3462c0e5e1454653e161d964a3/Media/ME802aa959b721a136ed519d0e73980602
-"1992-09-14","the only post I'll make",4,nil
-"2010-08-29","road trip around the states #cultured",5,nil
-"2015-03-30","wedding times #love",5,nil
-"1992-09-14","going through some rough times.",6,https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MM7f569d3462c0e5e1454653e161d964a3/Media/ME802aa959b721a136ed519d0e73980602
-"2010-08-29","played my first soccer game since the injury #feelingood",6,nil
-"2015-03-30","tried fried squid for the first time #woah",7,nil
-"1992-09-14","skydiving!!!! #livinontheedge",7,https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MM7f569d3462c0e5e1454653e161d964a3/Media/ME802aa959b721a136ed519d0e73980602
-"2010-08-29","lunch was good #youcantsitwithus",8,nil
-"2015-03-30","pulled my first all nighter in college. #essayssuck",8,nil
+date,body,user_id,media_url,created_at
+"1992-09-14","First birthday",1,nil,"1992-09-14"
+"2010-08-29","First day of college at Whitman!!! WOAH! #lifeisgood",1,nil,"2010-08-29"
+"2015-03-30","Got into Ada today. Life is good. #lifeisgood",1,nil,"2015-03-30"
+"1992-09-14","first day walking",2,nil,nil
+"2010-08-29","omg so many memories",2,nil,nil
+"2015-03-30","went on a walk with a friend and talked about all the things",2,nil,nil
+"1992-09-14","had a birthday party for my sister",3,nil,nil
+"2010-08-29","played my last game in high school. #sadness",3,https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MM7f569d3462c0e5e1454653e161d964a3/Media/ME802aa959b721a136ed519d0e73980602,nil
+"2015-03-30","came down with a cold from being outside for too long. #sickness",3,https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MM7f569d3462c0e5e1454653e161d964a3/Media/ME802aa959b721a136ed519d0e73980602,nil
+"1992-09-14","the only post I'll make",4,nil,nil
+"2010-08-29","road trip around the states #cultured",5,nil,nil
+"2015-03-30","wedding times #love",5,nil,nil
+"1992-09-14","going through some rough times.",6,https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MM7f569d3462c0e5e1454653e161d964a3/Media/ME802aa959b721a136ed519d0e73980602,nil
+"2010-08-29","played my first soccer game since the injury #feelingood",6,nil,nil
+"2015-03-30","tried fried squid for the first time #woah",7,nil,nil
+"1992-09-14","skydiving!!!! #livinontheedge",7,https://api.twilio.com/2010-04-01/Accounts/AC6298a5335759e854332607f3a69bf92e/Messages/MM7f569d3462c0e5e1454653e161d964a3/Media/ME802aa959b721a136ed519d0e73980602,nil
+"2010-08-29","lunch was good #youcantsitwithus",8,nil,nil
+"2015-03-30","pulled my first all nighter in college. #essayssuck",8,nil,nil
+"2015-10-11","BirdFruit at Christian's wedding! Highlights: spa day with the lady fruit, dancing to Ride Wit Me and replacing all the lyrics with 'Ay! Must be Chill Monkey!'",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xtf1/v/t1.0-9/12065586_10206317663752814_5573409473295656947_n.jpg?oh=0a8b1f0b917649d54d760b2620731325&oe=56B46FF1,"2015-10-11"
+"2015-09-30","BirdFruit makes it to NATTIES!!!! WOOHOO! Love this team :)",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xta1/t31.0-8/12087757_10153862744531756_4086004710135950206_o.jpg,"2015-09-30"
+"2015-07-18","Spent the weekend with Ellen in Portland. So good to have her back on this coast. We may or may not have spontaneously gotten tattoos as well...woah.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xaf1/v/t1.0-9/11760084_10153003605540905_4869361129634051725_n.jpg?oh=f85dbcbcc9f2c59f6ad9665ac45a6de3&oe=56BB5D35,"2015-07-18"
+"2015-02-26","Had such a great time at Ignite! Feel so much love and community here. So glad I could share it with my parents.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpa1/v/t1.0-9/19484_955807844432023_3493247882185251716_n.jpg?oh=ffab32e4d2d7ee8a0de042bde351310f&oe=56B6594B,"2015-02-26"
+"2015-01-11","Pingul Family Cruise Round 5 or 6? Can't remember now...haha.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-ash2/v/t35.0-12/10819439_10205712282869610_420026810_o.jpg?oh=bcebfa55370b2c90cb3cd894646c74fb&oe=56367FF4,"2015-01-11"
+"2015-01-01","Happy New Year from NYC! So good to have part of the crew back together.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xap1/v/t1.0-9/984257_10152592900485905_817798686642579040_n.jpg?oh=4d5e9d334255f227904990518e2ff94e&oe=56D2D14D,"2015-01-01"
+"2014-05-21","Graduated from Whitman today. Four years flew by so fast. Yikes.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpf1/t31.0-8/10467026_10153011272980828_4328358997227386825_o.jpg,"2014-05-21"
+"2014-07-31","Happy birthday to Bryce. Surprised him with tickets to Book of Mormon. He was just a bit excited.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfa1/v/t1.0-9/10464316_10204774998804921_5037543709312248395_n.jpg?oh=5ed504bbd250f6104683f73896678eb8&oe=56D1472F,"2014-07-31"
+"2014-07-25","BIF reunion. My first one. Crazy bunch.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xaf1/v/t1.0-9/10544360_965498017411_3864122855816657486_n.jpg?oh=593f0f0ec9c9bdafb4c0421096634386&oe=56C73EA7,"2014-07-25"
+"2014-04-05","Bike rides in Vancouver. So funny to watch Laurel and Louise try and ride a tandem for half a block before realizing that was a terrible idea and going back to the bike shop to replace it for two bikes. hahaha",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-frc3/v/t1.0-9/10156169_10202745644255377_1195221719_n.jpg?oh=3f0f6d0ecf2e3f929b30441e1d773ffb&oe=56B70DC1,"2014-04-05"
+"2014-01-04","Got to spend ten days visiting Soph in Detroit. What a fascinating city. So glad we got to see Motown and what she's been up to for the past year. So proud of my big sis.",1,nil,"2014-01-04"
+"2013-11-07","Spent the weekend in Newport,OR with mom and soph.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpf1/v/t1.0-9/1469877_10202504530803069_1774623980_n.jpg?oh=4ffc065a2c1c78a87684780723164a88&oe=56B6BD93,"2013-11-07"
+"2013-10-31","This has got to be one of my favorite photos. Combo of a lot of my fav things :)",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-ash2/t31.0-8/903875_10152003009725854_151421614_o.jpg,"2013-10-31"
+"2013-10-15","One of the best four-days of all of Whitman. Got to spend the long weekend with some of the most amazing people I've met here. I can't believe how much they are like family after just 3 years. Love them. Remember: Shunei in here's to the governor, Jake and his tacos haha.",1,nil,"2013-10-15"
+"2013-10-15","So good",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xft1/t31.0-8/980286_10151938027155119_1994389866_o.jpg,"2013-10-15"
+"2013-07-15","Triumph with my bro. So good to be able to spend my last year at that fantastic camp with him. Love.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xaf1/t31.0-8/219423_10151628480703283_1641192931_o.jpg,"2013-07-15"
+"2009-07-28","Orvieto",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfp1/v/t1.0-9/1934001_1180432599514_2149876_n.jpg?oh=7601787fd325f515589ae68b52d77ad7&oe=56BE33BD,"2009-07-28"
+"2009-11-27","Senior night for soccer.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfa1/v/t1.0-9/1915580_229423158968_312072_n.jpg?oh=eaccfeeab5e7b93bce99e9b1f36b4378&oe=56C4907F,"2009-11-27"
+"2009-11-20","Just sent my Whitman application in. Crossing my fingers!",1,nil,"2009-11-20"
+"2009-12-13","I absolutely LOVE this photo. What a partner in crime to have for all those years growing up. She's the best friend and teammate a gal could ever ask for!",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfp1/v/t1.0-9/22467_1316249634855_278188_n.jpg?oh=ffe81f6ce1908ee6b68ec06f134ea7af&oe=56B990D5,"2009-12-13"
+"2009-01-14","Oh hey GMA! Looking good :)",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfp1/v/t1.0-9/22467_1318904381222_2917970_n.jpg?oh=b2786bd879af5bed54fbe03254cc38fe&oe=56D294A0,"2009-01-14"
+"2009-12-15","My teammates are pretty rad. And so is this view.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpa1/v/t1.0-9/19356_278004641975_4063361_n.jpg?oh=8f1e38297268552b7d7c7efdaeaf2d3c&oe=56C41043,"2009-12-15"
+"2009-12-20","Senior night for basketball. And that ends my career...pretty emotional, but having our faces blown up on signs was pretty sweet.",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xpf1/v/t1.0-9/22367_1347886225750_1963308_n.jpg?oh=604a79d0bc157e7a6bd8ff287a3315b6&oe=56C4A289,"2009-12-20"
+"2010-06-20","Graduation with Triple D!",1,https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xaf1/v/t1.0-9/35668_1489582648072_314664_n.jpg?oh=d7ed0380627ad9bd6cea86c3a56f3eae&oe=56D020A9,"2010-06-20"
