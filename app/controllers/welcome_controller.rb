@@ -7,10 +7,10 @@ class WelcomeController < ApplicationController
     @year = params[:year] || Date.today.year.to_s
 
     if params[:year] # loads moments from selected year
-      @moments = Moment.user(session[:id]).year(params[:year]).reverse
+      @moments = Moment.user(session[:id]).year(params[:year]).sort_by(&:created_at)
       render partial: "welcome/timeline"
     else # default only loads moments from the current year
-      @moments = Moment.user(session[:id]).current_year.reverse
+      @moments = Moment.user(session[:id]).current_year.sort_by(&:created_at)
       @homepage = @moments.empty? ? "empty-search" : "homepage"
       render :index
     end
