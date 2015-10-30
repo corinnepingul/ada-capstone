@@ -95,17 +95,21 @@ img {
   border: none;
 }
 
+.navbar-toggle span {
+  color: black;
+}
+
 // overrides bootstrap's form-control styling
 .form-control {
   border-radius: 20px;
 }
 
 .center-search {
-    position: absolute;
-    left: 40%;
-    top: 25%;
-    text-align: center;
-    margin: auto;
+  position: absolute;
+  left: 40%;
+  top: 25%;
+  text-align: center;
+  margin: auto;
 }
 
 .title-font {
