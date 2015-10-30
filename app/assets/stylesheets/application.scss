@@ -73,7 +73,8 @@ img {
 
 .navbar {
   padding: 1% 0;
-  border-bottom: 1px solid rgba(100, 100, 100, .75);
+  border-bottom: 1px solid rgba(200, 200, 200, .75);
+  background-color: rgba(255, 255, 255, .75);
 }
 
 .stm_phone_number:before {
@@ -125,10 +126,10 @@ a:hover, a:visited, a:active, a:focus {
 }
 
 // these two change the color of the navbar font
-.navbar-default .navbar-text {
+.navbar .navbar-text {
   color: rgb(10, 10, 10);
 }
 
-.navbar-default .navbar-brand {
+.navbar .navbar-brand {
   color: rgb(10, 10, 10);
 }
