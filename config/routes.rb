@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # HOMEPAGE
   root "welcome#index"
 
+
   # FOR LOGIN/LOGOUT
   get "/registration", to: "sessions#new", as: "registration" # login/signup page
   post "/login", to: "sessions#create", as: "login"           # creates session -> homepage

@@ -10,6 +10,10 @@
   background-image: none;
 }
 
+.empty {
+  height: 50px;
+}
+
 .welcome-message {
   text-align: center;
   margin-top: 5%;
@@ -30,18 +34,16 @@
 
 #cd-timeline {
   position: relative;
-  padding: 4em 0;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 10em;
+  margin-top: 2em;
   margin-bottom: 2em;
 }
 
-#cd-timeline::before {
+.timeline-line::before {
   /* this is the vertical line */
   content: '';
   position: absolute;
-  top: 0;
   left: 50%;
   height: 100%;
   width: 4px;
@@ -187,4 +189,42 @@
 
 .image-modal p {
   color: black;
+}
+
+.row-fluid {
+  white-space: nowrap;
+}
+
+.row-fluid .col-lg-3 {
+  display: inline-block;
+  cursor: pointer;
+  width: 5em;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.row-fluid .col-lg-3:hover {
+  color: rgb(150, 150, 150);
+  text-shadow: rgba(50, 50, 50, .5)
+}
+
+.year-row {
+  margin-top: 7em;
+  overflow: scroll;
+  direction: rtl;
+  border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.year-row::-webkit-scrollbar {
+  display: none;
+}
+
+.year-heading {
+  display: block;
+  text-align: center;
+  font-size: 5em;
 }

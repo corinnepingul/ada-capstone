@@ -1,40 +1,47 @@
 <section id="cd-timeline">
-  <% @moments.each_with_index do |moment, index| %>
-    <div class="<%= moment_date_color_class_assignment(index) %>">
-    	<div class="cd-timeline-block cssanimations <%= moment_position_class_assignment(index) %>">
-    		<div class="cd-timeline-img">
-    			<!-- <img src="img/cd-icon-picture.svg" alt="Picture"> -->
-    		</div> <!-- cd-timeline-img -->
+  <div class="year-heading megrim-font">
+    <p><%= @year %></p>
+  </div>
+  <% unless @moments.empty? %>
+    <div class="timeline-line">
+      <% @moments.each_with_index do |moment, index| %>
+        <div class="<%= moment_date_color_class_assignment(index) %>">
+        	<div class="cd-timeline-block cssanimations <%= moment_position_class_assignment(index) %>">
+        		<div class="cd-timeline-img">
+        			<!-- <img src="img/cd-icon-picture.svg" alt="Picture"> -->
+        		</div> <!-- cd-timeline-img -->
 
-        <!-- moment_color_class_assignment(index) -->
-    		<div class="cd-timeline-content">
-    			<h3><%= formatted_date(moment.date) %></h3>
+            <!-- moment_color_class_assignment(index) -->
+        		<div class="cd-timeline-content">
+        			<h3><%= formatted_date(moment.date) %></h3>
 
-          <a href="<%= image_data_target(index) %>"
-             data-toggle="modal"
-             data-target="<%= image_data_target(index) %>"><%= image_tag(moment.media_url) %></a>
-            <p></p>
+              <a href="<%= image_data_target(index) %>"
+                 data-toggle="modal"
+                 data-target="<%= image_data_target(index) %>"><%= image_tag(moment.media_url) %></a>
+                <p></p>
 
-    			<p> <%= moment.body %> </p>
-    		</div> <!-- cd-timeline-content -->
-    	</div> <!-- cd-timeline-block -->
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade <%= moment_date_color_class_assignment(index) %>" id="<%= image_modal_id(index) %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-body image-modal">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel"><%= formatted_date(moment.date) %></h4>
-            </div>
-            <div class="modal-body">
-              <%= image_tag(moment.media_url) %>
-            </div>
-            <div class="modal-footer">
-              <p><%= moment.body %></p>
-            </div>
-          </div>
+        			<p> <%= moment.body %> </p>
+        		</div> <!-- cd-timeline-content -->
+        	</div> <!-- cd-timeline-block -->
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade <%= moment_date_color_class_assignment(index) %>" id="<%= image_modal_id(index) %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-body image-modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel"><%= formatted_date(moment.date) %></h4>
+                </div>
+                <div class="modal-body">
+                  <%= image_tag(moment.media_url) %>
+                </div>
+                <div class="modal-footer">
+                  <p><%= moment.body %></p>
+                </div>
+              </div>
+            </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </section>
