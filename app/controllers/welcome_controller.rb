@@ -11,6 +11,7 @@ class WelcomeController < ApplicationController
       render partial: "welcome/timeline"
     else # default only loads moments from the current year
       @moments = Moment.user(session[:id]).current_year.reverse
+      @homepage = @moments.empty? ? "empty-search" : "homepage"
       render :index
     end
   end
@@ -22,8 +23,8 @@ class WelcomeController < ApplicationController
   end
 
   def users_years(user)
-    signup_year = user.created_at.year
-    # signup_year = 2001
+    # signup_year = user.created_at.year
+    signup_year = 2001
     current_year = Date.today.year
 
     year_array = []
@@ -35,8 +36,5 @@ class WelcomeController < ApplicationController
     end
 
     return year_array
-  end
-
-  def created_at_year(date)
   end
 end
