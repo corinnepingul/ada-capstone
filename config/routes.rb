@@ -19,7 +19,4 @@ Rails.application.routes.draw do
 
   # API
   post "/sms/received_message", to: "api#received_message"
-
-  # year
-  get "/users:year", to: "welcome#year", as: "year"
 end
