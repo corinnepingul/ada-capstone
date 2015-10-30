@@ -1,7 +1,7 @@
 require 'csv'
 
 CSV.foreach("db/users.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
-  User.create(
+  user = User.new(
     username: row[:username],
     email: row[:email],
     password: row[:password],
@@ -11,6 +11,12 @@ CSV.foreach("db/users.csv", headers: true, header_converters: :symbol, converter
     locale: row[:locale],
     verified: true
   )
+
+  unless row[:created_at] == "nil"
+    user[:created_at] = row[:created_at]
+  end
+
+  user.save
 end
 
 CSV.foreach("db/moments.csv", headers: true, header_converters: :symbol, converters: :all) do |row|

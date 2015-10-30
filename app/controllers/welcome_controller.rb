@@ -23,8 +23,8 @@ class WelcomeController < ApplicationController
   end
 
   def users_years(user)
-    # signup_year = user.created_at.year
-    signup_year = 2001
+    signup_year = user.created_at.year
+    # signup_year = 2001
     current_year = Date.today.year
 
     year_array = []
