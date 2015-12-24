@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if user.save
       session[:id] = user.id
       register_authy_user(user)
-      send_verification_code_to_current_user
+      # send_verification_code_to_current_user
       flash[:message] = MESSAGES[:needs_verification]
 
       redirect_to verify_path
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def resend
-    send_verification_code_to_current_user
+    # send_verification_code_to_current_user
     flash[:notices] = NOTICES[:verification_code_resent]
 
     redirect_to verify_path
