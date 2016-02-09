@@ -1,7 +1,7 @@
 #Stash This Moment
 **Ada Developer's Academy Capstone Project, October 2015**
 
-\*Note: this project is not currently available for users...sorry!
+\*Note: this project is not currently available for users...sorry! But, you can check out a short video clip of the final product [_here_] (https://www.youtube.com/watch?v=O3o29zglYFo)
 
 ###Introduction:
 **Stash This Moment** is designed to be a web application that allows users to upload and store bits of text and/or photos (called "moments") via mms/sms to a private timeline. The inspiration for this project came from a very good college friend of mine, named Louise. She once sent me the best birthday card I have ever received. In her card she listed out distinct memories she had of me when she described me being the most confident - most me - version of myself. I was so touched that she remembered some of the most simple moments that I had completely forgotten. But, she had been collecting these small moments in a word document for many years. For each of her friends. One day, when her computer crashed, she lost all of these files. She was devastated and asked her friends to help her compile these small stories again. This is where I thought I could help out. What if there was a web application for her? One where she could go about her day and when she experienced a moment she wanted to save she could send a quick text or picture message to her app and know it was being kept safe for her. So that's how I decided to build **Stash This Moment**.
